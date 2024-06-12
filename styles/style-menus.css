@@ -1,0 +1,25 @@
+/* Estilos de menu */
+.item-menu{
+  background-color: #372a89;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+  transition: background-color 0.5s;
+  align-content: center;
+  height: 2.5rem;
+}
+
+.item-menu:hover{
+  background-color: #5d47ec;
+}
+
+.item-submenu{
+  background-color: #7163cf;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+}
+
+.item-submenu:hover{
+  background-color: #8372f1;
+}
+
+.item-menu, .item-submenu{
+  cursor: pointer;
+}

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://schema.omg.org/spec/UML/2.1">
+  <xmi:Documentation exporter="umbrello uml modeller 2.37.3 (Applications 22.12.3) http://umbrello.kde.org" exporterVersion="2.0.4"/>
+  <uml:Model xmi:id="m1" name="Modelo UML">
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="folder" name="folder"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="dataType" name="dataType"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="Logical_View" name="Logical View">
+      <uml:Package xmi:id="Datatypes" name="Datatypes" stereotype="folder">
+        <packagedElement xmi:type="uml:DataType" xmi:id="ufYDstjjLxGg7" name="char" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="u6VRjB1uqRbC0" name="int" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="ubWb9RNi44n96" name="float" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="ujEU3zauJ6c05" name="double" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="umnrSDqIuHzrP" name="bool" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uht7S0dNwnJud" name="string" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uAbZEDRm4GBkv" name="unsigned char" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uLhDVsfEKlKbc" name="signed char" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uZbdbbSrUguBY" name="unsigned int" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uXBkvgzQvA5US" name="signed int" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="umYqik8ZDxUNO" name="short int" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uuxo5KrG7E0zF" name="unsigned short int" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uibRwmfALO3GT" name="signed short int" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uGG4FsNu6jAiv" name="long int" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="u77jsefkzUnND" name="signed long int" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="u74oAZvzFVs4M" name="unsigned long int" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="usZjlznR9QYGo" name="long double" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uHSrWNbsQYizZ" name="wchar_t" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uxsl4ZsZ7yoXt" name="xlsx" stereotype="dataType" isActive="false"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uHhdL59gIc0fV" name="list" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uauANnI2fMwAy" name="dict" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uMrWCglbcSlWq" name="array" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uH76EbmSWlNsl" name="tuple" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uQIUC8aUdeVAE" name="long" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="u8rc41hF34LSE" name="object" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="u06c1N9Yb6KFx" name="set" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="ueEPvqBpfFmEV" name="str" stereotype="dataType"/>
+      </uml:Package>
+      <packagedElement xmi:type="uml:Class" xmi:id="u5NSRlP9jc2Gw" name="PDFhandler">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="uRZ4LSxGI9UEM" name="nome_arquivo" type="uht7S0dNwnJud"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="upb2GqM1Lx4v3" name="dados" visibility="private" type="uauANnI2fMwAy"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="uznCDTCiRmm2l" name="__init__">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="unZ1rjJDSYMJ4" name="self" visibility="private" type="" value=""/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="uCCB3rYISMPln" name="filename" visibility="private" type="uht7S0dNwnJud" value=""/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="uaO3dqQZnpOB6" name="data" visibility="private" type="" value=""/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="ulOiL1fps7ihD" name="readFile" visibility="private"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="uZgD6cj1TLsga" name="exportData" visibility="private">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="uTPtlCN6va52Y" type="uxsl4ZsZ7yoXt" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <xmi:Extension extender="umbrello">
+        <diagrams resolution="96">
+          <diagram xmi.id="ukTgQWaF5d3Lw" name="diagrama de classe" type="1" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" griddotcolor="#f7f7f7" linecolor="#990000" linewidth="2" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="100" canvasheight="800" canvaswidth="1100" isopen="1">
+            <widgets>
+              <classwidget xmi.id="u5NSRlP9jc2Gw" localid="uzM6p6HsYGweZ" textcolor="#000000" linecolor="#990000" linewidth="2" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0,Regular" autoresize="0" x="265" y="120" width="279" height="119" isinstance="0" showstereotype="2" showoperations="1" showpubliconly="0" showopsigs="601" showpackage="1" showscope="1" showattributes="1" showattsigs="601"/>
+            </widgets>
+            <messages/>
+            <associations/>
+          </diagram>
+          <diagram xmi.id="ut0zpMG1Qz8v9" name="diagrama de atividade" type="6" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" griddotcolor="#f7f7f7" linecolor="#990000" linewidth="2" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="100" canvasheight="800" canvaswidth="1100" isopen="1">
+            <widgets/>
+            <messages/>
+            <associations/>
+          </diagram>
+        </diagrams>
+      </xmi:Extension>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="Use_Case_View" name="Use Case View">
+      <packagedElement xmi:type="uml:Actor" xmi:id="usFouP97rW5xm" name="usuário"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uLXqYsEmyuPRh" name="Informa nome PDF"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="uVAmTTqqPfVVN" name="">
+        <ownedEnd xmi:type="uml:AssociationEnd" xmi:id="u9rOGrZRwMWVj" name="" type="usFouP97rW5xm" aggregation="none" isNavigable="true" changeability="changeable"/>
+        <ownedEnd xmi:type="uml:AssociationEnd" xmi:id="uMlEkjPfBxmky" name="" type="uLXqYsEmyuPRh" aggregation="none" isNavigable="true" changeability="changeable"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Actor" xmi:id="ub8HrzCT0ZkKE" name="sistema"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="ubJkSHUE9x5L7" name="Lê o PDF"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="u9vXQT3q2AraI" name="">
+        <ownedEnd xmi:type="uml:AssociationEnd" xmi:id="ujKI29UchNpwK" name="" type="ub8HrzCT0ZkKE" aggregation="none" isNavigable="true" changeability="changeable"/>
+        <ownedEnd xmi:type="uml:AssociationEnd" xmi:id="uKkz8oVezLzQw" name="" type="ubJkSHUE9x5L7" aggregation="none" isNavigable="true" changeability="changeable"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uGd0lFC7GG3MJ" name="Exporta dados p/ planilha"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="uaw5wK0OlmGAm" name="">
+        <ownedEnd xmi:type="uml:AssociationEnd" xmi:id="upB3jb1hxLWfb" name="" type="ub8HrzCT0ZkKE" aggregation="none" isNavigable="true" changeability="changeable"/>
+        <ownedEnd xmi:type="uml:AssociationEnd" xmi:id="utznQqMXCJp6Z" name="" type="uGd0lFC7GG3MJ" aggregation="none" isNavigable="true" changeability="changeable"/>
+      </packagedElement>
+      <xmi:Extension extender="umbrello">
+        <diagrams resolution="96">
+          <diagram xmi.id="uqRYpe9l9FRdq" name="diagrama do caso de uso" type="2" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" griddotcolor="#f7f7f7" linecolor="#990000" linewidth="2" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="100" canvasheight="800" canvaswidth="1100" isopen="1">
+            <widgets>
+              <usecasewidget xmi.id="uGd0lFC7GG3MJ" localid="uLTbowpP4AnUs" textcolor="#000000" linecolor="#990000" linewidth="2" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0,Regular" autoresize="0" x="297" y="363" width="146" height="63" isinstance="0" showstereotype="2"/>
+              <usecasewidget xmi.id="ubJkSHUE9x5L7" localid="u6ZHsbVx429zv" textcolor="#000000" linecolor="#990000" linewidth="2" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" autoresize="1" x="336" y="265" width="70" height="53" isinstance="0" showstereotype="2"/>
+              <actorwidget xmi.id="ub8HrzCT0ZkKE" localid="ul3JmRPNnEtsj" textcolor="#000000" linecolor="#990000" linewidth="2" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" autoresize="1" x="537" y="292" width="64" height="64" isinstance="0" showstereotype="2"/>
+              <usecasewidget xmi.id="uLXqYsEmyuPRh" localid="uJOpxoCOHJWNE" textcolor="#000000" linecolor="#990000" linewidth="2" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" autoresize="1" x="294" y="165" width="139" height="53" isinstance="0" showstereotype="2"/>
+              <actorwidget xmi.id="usFouP97rW5xm" localid="uyGVIJ1C5DzvP" textcolor="#000000" linecolor="#990000" linewidth="2" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" autoresize="1" x="157" y="299" width="62" height="62" isinstance="0" showstereotype="2"/>
+            </widgets>
+            <messages/>
+            <associations>
+              <assocwidget xmi.id="uaw5wK0OlmGAm" localid="uQlsC0P5OmXiX" textcolor="none" linecolor="#990000" linewidth="2" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Cantarell,11,-1,5,50,0,0,0,0,0" autoresize="1" seqnum="" type="503" widgetaid="ub8HrzCT0ZkKE" widgetbid="uGd0lFC7GG3MJ" indexa="0" totalcounta="0" indexb="0" totalcountb="0">
+                <linepath layout="Direct">
+                  <startpoint startx="537" starty="335.337"/>
+                  <endpoint endx="443" endy="368.638"/>
+                </linepath>
+              </assocwidget>
+              <assocwidget xmi.id="uVAmTTqqPfVVN" localid="uwiMnEpIAslnE" textcolor="none" linecolor="#990000" linewidth="2" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Cantarell,11,-1,5,50,0,0,0,0,0" autoresize="1" seqnum="" type="503" widgetaid="usFouP97rW5xm" widgetbid="uLXqYsEmyuPRh" indexa="0" totalcounta="0" indexb="0" totalcountb="0">
+                <linepath layout="Direct">
+                  <startpoint startx="219" starty="305.536"/>
+                  <endpoint endx="329.921" endy="218"/>
+                </linepath>
+              </assocwidget>
+              <assocwidget xmi.id="u9vXQT3q2AraI" localid="uhruCurwEwtdm" textcolor="none" linecolor="#990000" linewidth="2" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Cantarell,11,-1,5,50,0,0,0,0,0" autoresize="1" seqnum="" type="503" widgetaid="ub8HrzCT0ZkKE" widgetbid="ubJkSHUE9x5L7" indexa="0" totalcounta="0" indexb="0" totalcountb="0">
+                <linepath layout="Direct">
+                  <startpoint startx="537" starty="318.747"/>
+                  <endpoint endx="406" endy="297.245"/>
+                </linepath>
+              </assocwidget>
+            </associations>
+          </diagram>
+        </diagrams>
+      </xmi:Extension>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="Component_View" name="Component View"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="Deployment_View" name="Deployment View"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="Entity_Relationship_Model" name="Entity Relationship Model"/>
+  </uml:Model>
+  <xmi:Extension extender="umbrello">
+    <docsettings viewid="ukTgQWaF5d3Lw" documentation="" uniqueid="unZ1rjJDSYMJ4"/>
+    <listview>
+      <listitem id="Views" type="800" open="1">
+        <listitem id="Entity_Relationship_Model" type="836" open="1"/>
+        <listitem id="Deployment_View" type="827" open="1"/>
+        <listitem id="Use_Case_View" type="802" open="1">
+          <listitem id="uqRYpe9l9FRdq" type="805" label="diagrama do caso de uso" open="0"/>
+          <listitem id="uGd0lFC7GG3MJ" type="812" open="1"/>
+          <listitem id="uLXqYsEmyuPRh" type="812" open="1"/>
+          <listitem id="ubJkSHUE9x5L7" type="812" open="1"/>
+          <listitem id="ub8HrzCT0ZkKE" type="811" open="1"/>
+          <listitem id="usFouP97rW5xm" type="811" open="1"/>
+        </listitem>
+        <listitem id="Component_View" type="821" open="1"/>
+        <listitem id="Logical_View" type="801" open="1">
+          <listitem id="ut0zpMG1Qz8v9" type="809" label="diagrama de atividade" open="0"/>
+          <listitem id="ukTgQWaF5d3Lw" type="807" label="diagrama de classe" open="0"/>
+          <listitem id="u5NSRlP9jc2Gw" type="813" open="1">
+            <listitem id="uznCDTCiRmm2l" type="815" open="0"/>
+            <listitem id="upb2GqM1Lx4v3" type="814" open="0"/>
+            <listitem id="uZgD6cj1TLsga" type="815" open="0"/>
+            <listitem id="uRZ4LSxGI9UEM" type="814" open="0"/>
+            <listitem id="ulOiL1fps7ihD" type="815" open="0"/>
+          </listitem>
+          <listitem id="Datatypes" type="830" open="0">
+            <listitem id="uMrWCglbcSlWq" type="829" open="1"/>
+            <listitem id="umnrSDqIuHzrP" type="829" open="1"/>
+            <listitem id="uauANnI2fMwAy" type="829" open="1"/>
+            <listitem id="ubWb9RNi44n96" type="829" open="0"/>
+            <listitem id="u6VRjB1uqRbC0" type="829" open="0"/>
+            <listitem id="uHhdL59gIc0fV" type="829" open="1"/>
+            <listitem id="uQIUC8aUdeVAE" type="829" open="1"/>
+            <listitem id="u8rc41hF34LSE" type="829" open="1"/>
+            <listitem id="u06c1N9Yb6KFx" type="829" open="1"/>
+            <listitem id="ueEPvqBpfFmEV" type="829" open="1"/>
+            <listitem id="uH76EbmSWlNsl" type="829" open="1"/>
+          </listitem>
+        </listitem>
+      </listitem>
+    </listview>
+    <codegeneration>
+      <codegenerator language="Python"/>
+    </codegeneration>
+  </xmi:Extension>
+</xmi:XMI>

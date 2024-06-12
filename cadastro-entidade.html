@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="styles/style-main.css">
+  <link rel="stylesheet" href="styles/style-menus.css">
+  <link rel="stylesheet" href="styles/style-conteiners.css">
+  <link rel="stylesheet" href="styles/style-forms.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIDPE - Sistema Integrado da Divisão de Pré-Embalados</title>
+</head>
+
+<body>
+
+  <div class="grid-container">
+
+    <header class="grid-header">
+      <img class="logo" src="/img/logo_inmeq_inmetro.png">
+      <div class="container-header">SIDPE - Sistema Integrado da Divisão de Pré-Embalados</div>
+    </header>
+
+    <nav class="grid-nav" id="itens">
+      <div id="metas" class="item-menu">METAS</div>
+      <div id="dir" class="item-menu">DOAÇÃO/INUTILIZAÇÃO/RETIRADA</div>
+      <div id="simulacoes" class="item-menu">SIMULAÇÕES</div>
+      <div id="sair" class="item-menu">SAIR</div>
+    </nav>
+
+    <section class="grid-section" id="subitens">
+      <div class="item-submenu" id="rdir">REGISTRAR DESTINO DE PRODUTOS</div>
+      <div class="item-submenu" id="cnt">REGISTRAR DOAÇÃO</div>
+      <div class="item-submenu" id="cnt">CADASTRO DE ENTIDADES</div>
+      <div class="item-submenu" id="gpl">GERAR PLANILHA SGI</div>
+      <div class="item-submenu" id="cnc">CANCELAR</div>
+    </section>
+
+    <main class="grid-main">
+
+      <h2>CADASTRO DE ENTIDADES PARA DOAÇÕES</h2>
+
+      <div>
+        <form autocomplete="off">
+
+          <div class="div-comum-block">
+            <div class="div-output-block">
+              <label for="entidades">Entidades cadastradas:&nbsp;</label><br>
+              <select name="entidades" id="entidades" style="width: 45.5rem;">
+                <option value=""></option>
+              </select>
+            </div>
+
+            <div class="div-output-block">
+              <div class="div-comum-block">
+                <label for="rs">Razão Social</label>
+                <input type="text" name="rs" id="rs" style="width: 45rem;" disabled>
+              </div>
+              <div class="div-comum-block">
+                <label for="cnpj">CNPJ</label>
+                <input type="text" name="cnpj" id="cnpj" style="width: 45rem;" disabled>
+              </div>
+              <div class="div-comum-block">
+                <label for="contatos">Contato(s)</label>
+                <input type="text" name="contatos" id="contatos" style="width: 45rem;" disabled>
+              </div>
+              <div class="div-comum-block">
+                <label for="email">E-mail</label>
+                <input type="text" name="email" id="email" style="width: 45rem;" disabled>
+              </div>
+
+              <div class="div-comum-inline">
+                <label for="telefones">Telefone(s)&nbsp;&nbsp;</label>
+                <input type="text" name="telefone" id="telefones" placeholder="Ex.: (XX) XXXXX-XXXX"
+                  style="width: 24rem;" disabled>&nbsp;&nbsp;
+                <span>Ativo?&nbsp;&nbsp;</span>
+                <span>Sim</span>&nbsp;&nbsp;
+                <input type="radio" id="ativo" name="ativo" value="s" checked disabled>&nbsp;&nbsp;
+                <span>Não</span>&nbsp;&nbsp;
+                <input type="radio" id="ativo" name="ativo" value="n" disabled>
+              </div>
+
+              <div class="div-comum-block">
+                <label for="validade">Cadastro válido até</label>
+                <input type="date" name="validade" id="validade" style="width: 12rem; height: 1.5rem;" disabled>
+              </div>
+
+              <div class="div-comum-inline">
+                <button type="button" style="width: 8rem;" id="novo">Novo</button>&nbsp;&nbsp;
+                <button type="button" style="width: 8rem;" disabled id="salvar">Salvar</button>&nbsp;&nbsp;
+                <button type="button" style="width: 8rem;" id="cancelar">Cancelar</button>
+              </div>
+
+
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+    </main>
+
+  </div>
+</body>
+
+</html>
+<script>
+
+  $(document).ready(function () {
+
+    $("#dir").click(function () {
+
+      $("#subitens").slideDown("slow");
+
+    });
+
+  })
+
+</script>
