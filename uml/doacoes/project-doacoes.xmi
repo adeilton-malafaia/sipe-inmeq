@@ -27,10 +27,28 @@
         <packagedElement xmi:type="uml:DataType" xmi:id="ulXwnLdaabxTv" name="long double" stereotype="dataType"/>
         <packagedElement xmi:type="uml:DataType" xmi:id="u8N2MPwOoKcUd" name="wchar_t" stereotype="dataType"/>
       </uml:Package>
+      <packagedElement xmi:type="uml:Class" xmi:id="uNDPrkxYJxLme" name="entidade">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ugDNGFzUaLBGK" name="rs" type="uJf1sdmGnSG9K"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="uV91Wov449I37" name="nf" type="uJf1sdmGnSG9K"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="uQZChIRf4dslL" name="cnpj" type="uPd366zJYs6Dn"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="uZebVzIKn8nGq" name="contatos" type="uJf1sdmGnSG9K"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="uPGRfffw2PPCJ" name="email" type="uJf1sdmGnSG9K"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="uWta0Nw82SJN0" name="fone" type="uJf1sdmGnSG9K"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="uSv9Aol0Q9whU" name="ativo" type="uqR6YViwZvf8D"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="u0Ev6H3HhL81Z" name="produto">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="uCXxXYm0JlM46" name="nome" type="uJf1sdmGnSG9K"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="udCwmRFzvCLh3" name="marca" type="uJf1sdmGnSG9K"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="uT5GvOm62ccEk" name="qn" type="uqcEoCBbBvhx3"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="uqm3y8q5kJWn8" name="unid" type="uqR6YViwZvf8D"/>
+      </packagedElement>
       <xmi:Extension extender="umbrello">
         <diagrams resolution="96">
-          <diagram xmi.id="uemNhffUyJ3NB" name="diagrama de classe" type="1" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" griddotcolor="#f7f7f7" linecolor="#990000" linewidth="2" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="100" canvasheight="800" canvaswidth="1100" isopen="0">
-            <widgets/>
+          <diagram xmi.id="uemNhffUyJ3NB" name="diagrama de classe" type="1" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" griddotcolor="#f7f7f7" linecolor="#990000" linewidth="2" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="100" canvasheight="800" canvaswidth="1100" isopen="1">
+            <widgets>
+              <classwidget xmi.id="uNDPrkxYJxLme" localid="uSAuokyI9wgB0" textcolor="#000000" linecolor="#990000" linewidth="2" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="127" y="124" width="130" height="153" isinstance="0" showstereotype="2" showoperations="1" showpubliconly="0" showopsigs="601" showpackage="1" showscope="1" showattributes="1" showattsigs="601"/>
+              <classwidget xmi.id="u0Ev6H3HhL81Z" localid="urbbZSQZpVlcf" textcolor="#000000" linecolor="#990000" linewidth="2" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="554" y="123" width="113" height="99" isinstance="0" showstereotype="2" showoperations="1" showpubliconly="0" showopsigs="601" showpackage="1" showscope="1" showattributes="1" showattsigs="601"/>
+            </widgets>
             <messages/>
             <associations/>
           </diagram>
@@ -147,7 +165,7 @@
       <packagedElement xmi:type="uml:Dependency" xmi:id="uiAi2RJRafn3z" name="" stereotype="include" client="u8qN8TUOgqiNE" supplier="uATzC1Ba3hOUz"/>
       <xmi:Extension extender="umbrello">
         <diagrams resolution="96">
-          <diagram xmi.id="u63YCclRdQiZU" name="UC01: REGISTRAR DESTINO DE PRODUTOS" type="2" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" griddotcolor="#f7f7f7" linecolor="#990000" linewidth="2" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="120" canvasheight="800" canvaswidth="1100" isopen="1">
+          <diagram xmi.id="u63YCclRdQiZU" name="UC01: REGISTRAR DESTINO DE PRODUTOS" type="2" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" griddotcolor="#f7f7f7" linecolor="#990000" linewidth="2" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="118" canvasheight="800" canvaswidth="1100" isopen="1">
             <widgets>
               <usecasewidget xmi.id="uATzC1Ba3hOUz" localid="uk0WaQhnLCvTy" textcolor="#000000" linecolor="#990000" linewidth="2" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" autoresize="1" x="19" y="315.214" width="70" height="53" isinstance="0" showstereotype="2"/>
               <usecasewidget xmi.id="ul2mxZ9zHtJpB" localid="uMpM8JZDloIwB" textcolor="#000000" linecolor="#990000" linewidth="2" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0,Regular" autoresize="0" x="281.357" y="181.714" width="147" height="53" isinstance="0" showstereotype="2"/>
@@ -236,7 +254,7 @@
               </assocwidget>
             </associations>
           </diagram>
-          <diagram xmi.id="u1QQNafFirO8b" name="UC02: CADASTRO DE ENTIDADES" type="2" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" griddotcolor="#d3d3d3" linecolor="#990000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="156" canvasheight="800" canvaswidth="1100" isopen="1">
+          <diagram xmi.id="u1QQNafFirO8b" name="UC02: CADASTRO DE ENTIDADES" type="2" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" griddotcolor="#d3d3d3" linecolor="#990000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="179" canvasheight="800" canvaswidth="1100" isopen="1">
             <widgets>
               <usecasewidget xmi.id="uN4ZyqyjwxUZH" localid="uXLsqzijl39ET" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" autoresize="0" x="152.183" y="408.449" width="124" height="64" isinstance="0" showstereotype="2"/>
               <usecasewidget xmi.id="uiUqYk5fBVuWd" localid="u96vzn86PNX97" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0,Regular" autoresize="0" x="385.258" y="265.778" width="100.07" height="66.7369" isinstance="0" showstereotype="2"/>
@@ -307,7 +325,7 @@
               </assocwidget>
             </associations>
           </diagram>
-          <diagram xmi.id="uTJSyPBzNz07C" name="UC03:REGISTRAR DOAÇÃO" type="2" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" griddotcolor="#d3d3d3" linecolor="#990000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="156.65" canvasheight="800" canvaswidth="1100" isopen="1">
+          <diagram xmi.id="uTJSyPBzNz07C" name="UC03:REGISTRAR DOAÇÃO" type="2" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" griddotcolor="#d3d3d3" linecolor="#990000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="156" canvasheight="800" canvaswidth="1100" isopen="1">
             <widgets>
               <usecasewidget xmi.id="uATzC1Ba3hOUz" localid="uPKPQOGLuP2KN" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" autoresize="1" x="206.192" y="481.966" width="70" height="53" isinstance="0" showstereotype="2"/>
               <usecasewidget xmi.id="uafVU9ScGFbnT" localid="uaZcpvJbttZy4" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Cantarell,11,-1,5,50,0,0,0,0,0" autoresize="1" x="342.857" y="323.214" width="98" height="53" isinstance="0" showstereotype="2"/>
@@ -393,7 +411,7 @@
     <packagedElement xmi:type="uml:Model" xmi:id="Entity_Relationship_Model" name="Entity Relationship Model"/>
   </uml:Model>
   <xmi:Extension extender="umbrello">
-    <docsettings viewid="uTJSyPBzNz07C" documentation="" uniqueid="usermDRVpMmJj"/>
+    <docsettings viewid="uemNhffUyJ3NB" documentation="" uniqueid="uqm3y8q5kJWn8"/>
     <listview>
       <listitem id="Views" type="800" open="1">
         <listitem id="Entity_Relationship_Model" type="836" open="1"/>
@@ -423,6 +441,21 @@
         <listitem id="Component_View" type="821" open="1"/>
         <listitem id="Logical_View" type="801" open="1">
           <listitem id="uemNhffUyJ3NB" type="807" label="diagrama de classe" open="0"/>
+          <listitem id="uNDPrkxYJxLme" type="813" open="1">
+            <listitem id="uSv9Aol0Q9whU" type="814" open="0"/>
+            <listitem id="uQZChIRf4dslL" type="814" open="0"/>
+            <listitem id="uZebVzIKn8nGq" type="814" open="0"/>
+            <listitem id="uPGRfffw2PPCJ" type="814" open="0"/>
+            <listitem id="uWta0Nw82SJN0" type="814" open="0"/>
+            <listitem id="uV91Wov449I37" type="814" open="0"/>
+            <listitem id="ugDNGFzUaLBGK" type="814" open="0"/>
+          </listitem>
+          <listitem id="u0Ev6H3HhL81Z" type="813" open="1">
+            <listitem id="udCwmRFzvCLh3" type="814" open="0"/>
+            <listitem id="uCXxXYm0JlM46" type="814" open="0"/>
+            <listitem id="uT5GvOm62ccEk" type="814" open="0"/>
+            <listitem id="uqm3y8q5kJWn8" type="814" open="0"/>
+          </listitem>
           <listitem id="Datatypes" type="830" open="0">
             <listitem id="uueOE7VXWPV55" type="829" open="0"/>
             <listitem id="uqR6YViwZvf8D" type="829" open="0"/>
