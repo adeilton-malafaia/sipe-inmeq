@@ -1,10 +1,11 @@
 from django.urls import path
 
-from destinations.views import destino, doacao, entidades, planilha
+# from destinations import views
+from . import views
 
 urlpatterns = [
-    path('entidades/', entidades),
-    path('destino/', destino),
-    path('doacao/', doacao),
-    path('planilha', planilha),
+    path('entidades/', views.entidades),
+    path('destino/', views.destino),
+    path('doacao/', views.doacao),
+    path('planilha', views.planilha),
 ]
