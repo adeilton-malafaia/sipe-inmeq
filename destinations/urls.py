@@ -6,5 +6,5 @@ urlpatterns = [
     path('entidades/', entidades),
     path('destino/', destino),
     path('doacao/', doacao),
-    path('planilha', planilha)
+    path('planilha', planilha),
 ]
