@@ -14,31 +14,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.http import HttpResponse
-from django.urls import path
-
-
-def cadastro_entidades(request):
-    return HttpResponse('Página de cadastro de entidades (app)')
-
-
-def gerar_planilha(request):
-    return HttpResponse('Página para gerar planilha (app)')
-
-
-def registro_destino(response):
-    return HttpResponse('Página para registrar destino (app)')
-
-
-def registro_doacao(request):
-    return HttpResponse('Página para registro de doação (app)')
-
+from django.urls import include, path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('cadastroentidade/', cadastro_entidades),
-    path('gerarplanilha/', gerar_planilha),
-    path('registrodestino/', registro_destino),
-    path('registrodoacao/', registro_doacao)
+    path('doacoes/', include('destinations.urls'))
 ]
