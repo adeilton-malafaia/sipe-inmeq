@@ -1,0 +1,105 @@
+/* Estilos para contêineres */
+
+.grid-container{
+  display: grid;
+  grid-template-areas:
+  "hd hd hd hd hd hd hd hd hd hd"
+  "nv nv nv nv nv nv nv nv nv nv"
+  "sc sc mn mn mn mn mn mn mn mn"
+  ;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+
+  grid-template-rows: 8vh 3vh 89vh;
+}
+
+.grid-header{
+  background-color: #17123b;
+  padding: 1rem;
+  border-style: none;
+  font-size: 1.8rem;
+  display: flex;
+  grid-area: hd;
+  align-items: center;
+}
+
+.grid-nav{
+  background-color: #372a89;
+  align-items: center;
+  padding-left: 1rem;
+  grid-area: nv;
+  display: flex;
+}
+
+.grid-nav > div{
+  padding: 0rem 1rem 0rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.grid-section{
+  background-color: #7163cf;
+  grid-area: sc;
+  display: none;
+}
+
+.grid-main{
+  background-color: rgb(217, 223, 248);
+  grid-area: mn;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  padding-top: 5rem;
+  font-size: 1rem;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.container-header{
+  align-content: center;
+  padding: 1rem;
+  color: white;
+}
+
+.grid-nav, .grid-section{
+  font-size: 1rem;
+  color: white;
+}
+
+.logo{
+  border-radius: 1rem;
+  height: 4.5rem;
+}
+
+.div-comum-block{
+  flex-direction: column;
+}
+
+.div-comum-inline{
+  flex-direction: row;
+}
+
+.div-comum-block, .div-comum-inline{
+  padding: 1rem;
+  display: flex;
+  align-content: center;
+}
+
+.div-output-block{
+  display: flex;
+  flex-direction: column;
+}
+
+.div-output-inline{
+  display: flex;
+  flex-direction: row;
+}
+
+.div-output-block, .div-output-inline{
+  padding: 1.5rem;
+  border-style: outset;
+  border-color: rgb(206, 215, 250);
+  border-radius: 1rem;
+  border-width: 0.3rem;
+  margin-top: 2rem;
+}
