@@ -1,12 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="styles/style-main.css">
-  <link rel="stylesheet" href="styles/style-menus.css">
-  <link rel="stylesheet" href="styles/style-conteiners.css">
-  <link rel="stylesheet" href="styles/style-forms.css">
+  <link rel="stylesheet" href="{% static 'destinations/css/style-main.css' %}">
+  <link rel="stylesheet" href="{% static 'destinations/css/style-menus.css' %}">
+  <link rel="stylesheet" href="{% static 'destinations/css/style-conteiners.css' %}">
+  <link rel="stylesheet" href="{% static 'destinations/css/style-forms.css' %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
@@ -21,7 +22,7 @@
   <div class="grid-container">
 
     <header class="grid-header">
-      <img class="logo" src="/img/logo_inmeq_inmetro.png">
+      <img class="logo" src="{% static 'destinations/img/logo_inmeq_inmetro.png' %}">
       <div class="container-header">SIDPE - Sistema Integrado da Divisão de Pré-Embalados</div>
     </header>
 
@@ -79,125 +80,131 @@
                   </div>
                   <div class="div-comum-block" style="padding-left: 0rem;">
                     <label for="cargo-resp-entidade">Cargo do Responsável</label>
-                    <input type="text" name="cargo-resp-entidade" id="cargo-resp-entidade" disabled style="width: 21rem;">
+                    <input type="text" name="cargo-resp-entidade" id="cargo-resp-entidade" disabled
+                      style="width: 21rem;">
                   </div>
                   <div class="div-comum-block" style="padding-left: 0rem; padding-right: 0rem;">
                     <label for="doc-resp-entidade">N.º Documento do Responsável</label>
                     <input type="text" name="doc-resp-entidade" id="doc-resp-entidade" disabled style="width: 21rem;">
                   </div>
                 </div>
-            </fieldset>
+              </fieldset>
 
-            <fieldset style="margin-top: 1rem; width: 68rem;">
-              <legend>DADOS DIPRE/INMEQ</legend>
-              <div style="display: flex;">
-                <div class="div-comum-block" style="padding-left: 0rem;">
-                  <label for="resp-inmeq">Responsável pela Doação</label>
-                  <select name="resp-inmeq" id="resp-inmeq" disabled style="width: 33rem;">
-                    <option value=""></option>
-                    <option value="01">RESPOSÁVEL 01</option>
-                    <option value="02">RESPOSÁVEL 02</option>
-                  </select>
+              <fieldset style="margin-top: 1rem; width: 68rem;">
+                <legend>DADOS DIPRE/INMEQ</legend>
+                <div style="display: flex;">
+                  <div class="div-comum-block" style="padding-left: 0rem;">
+                    <label for="resp-inmeq">Responsável pela Doação</label>
+                    <select name="resp-inmeq" id="resp-inmeq" disabled style="width: 33rem;">
+                      <option value=""></option>
+                      <option value="01">RESPOSÁVEL 01</option>
+                      <option value="02">RESPOSÁVEL 02</option>
+                    </select>
+                  </div>
+                  <div class="div-comum-block" style="padding-left: 0rem;">
+                    <label for="test-inmeq">Testemunha</label>
+                    <select name="test-inmeq" id="test-inmeq" disabled style="width: 33rem;">
+                      <option value=""></option>
+                      <option value="01">TESTEMUNHA 01</option>
+                      <option value="02">TESTEMUNHA 02</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="div-comum-block" style="padding-left: 0rem;">
-                  <label for="test-inmeq">Testemunha</label>
-                  <select name="test-inmeq" id="test-inmeq" disabled style="width: 33rem;">
-                    <option value=""></option>
-                    <option value="01">TESTEMUNHA 01</option>
-                    <option value="02">TESTEMUNHA 02</option>
-                  </select>
-                </div>
+              </fieldset>
+
+              <div class="div-comum-inline" style="overflow: auto; justify-content: center;">
+                <button type="button" style="width: 14rem;" disabled id="provisorio">Registro
+                  provisório</button>&nbsp;&nbsp;
+                <button type="button" style="width: 14rem;" disabled id="confirmar">Confirmar
+                  registro</button>&nbsp;&nbsp;
+                <button type="button" style="width: 8rem;" id="cancelar">Cancelar</button>
               </div>
-            </fieldset>
 
-            <div class="div-comum-inline" style="overflow: auto; justify-content: center;">
-              <button type="button" style="width: 14rem;" disabled id="provisorio">Registro provisório</button>&nbsp;&nbsp;
-              <button type="button" style="width: 14rem;" disabled id="confirmar">Confirmar registro</button>&nbsp;&nbsp;
-              <button type="button" style="width: 8rem;" id="cancelar">Cancelar</button>
-            </div>
-
-            <div class="div-comum-block" id="dados" style="display: flex;">
-            <table style="width: 67rem;">
-              <tr>
-                <th style="width: 6rem;">Data</th>
-                <th style="width: 5rem;">TC</th>
-                <th style="width: 25rem;">Produto</th>
-                <th style="width: 20rem;">Marca</th>
-                <th style="width: 5rem;">Qn</th>
-                <th style="width: 3rem;">Quant</th>
-                <th style="width: 3rem;">&nbsp;</th>
-              </tr>
-              <tr>
-                <td>
-                  02/05/2024
-                </td>
-                <td>
-                  2060001
-                </td>
-                <td>
-                  MACARRÃO
-                </td>
-                <td>
-                  PAJUSSARA
-                </td>
-                <td>
-                  500g
-                </td>
-                <td>
-                  20
-                </td>
-                <td>
-                  <button type="button" id="excluir[]" style="display: flex; align-items: center;"><img src="img/trash01.png" style="height: 1.5rem;" alt=""></button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  02/05/2024
-                </td>
-                <td>
-                  2060002
-                </td>
-                <td>
-                  PAPEL TOALHA INTERFOLHADO
-                </td>
-                <td>
-                  SNAP
-                </td>
-                <td>
-                  1.000Un
-                </td>
-                <td>
-                  13
-                </td>
-                <td>
-                  <button type="button" id="excluir[]" style="display: flex; align-items: center;"><img src="img/trash01.png" style="height: 1.5rem;" alt=""></button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  02/05/2024
-                </td>
-                <td>
-                  2060003
-                </td>
-                <td>
-                  BISCOITO RECHEADO SABOR BRIGADEIRO SEM LACTOSE
-                </td>
-                <td>
-                  PIRAQUÊ
-                </td>
-                <td>
-                  80g
-                </td>
-                <td>
-                  32
-                </td>
-                <td>
-                  <button type="button" id="excluir[]" style="display: flex; align-items: center;"><img src="img/trash01.png" style="height: 1.5rem;" alt=""></button>
-                </td>
-              </tr>
-            </table>
-          </div>
+              <div class="div-comum-block" id="dados" style="display: flex;">
+                <table style="width: 67rem;">
+                  <tr>
+                    <th style="width: 6rem;">Data</th>
+                    <th style="width: 5rem;">TC</th>
+                    <th style="width: 25rem;">Produto</th>
+                    <th style="width: 20rem;">Marca</th>
+                    <th style="width: 5rem;">Qn</th>
+                    <th style="width: 3rem;">Quant</th>
+                    <th style="width: 3rem;">&nbsp;</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      02/05/2024
+                    </td>
+                    <td>
+                      2060001
+                    </td>
+                    <td>
+                      MACARRÃO
+                    </td>
+                    <td>
+                      PAJUSSARA
+                    </td>
+                    <td>
+                      500g
+                    </td>
+                    <td>
+                      20
+                    </td>
+                    <td>
+                      <button type="button" id="excluir[]" style="display: flex; align-items: center;"><img
+                          src="img/trash01.png" style="height: 1.5rem;" alt=""></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      02/05/2024
+                    </td>
+                    <td>
+                      2060002
+                    </td>
+                    <td>
+                      PAPEL TOALHA INTERFOLHADO
+                    </td>
+                    <td>
+                      SNAP
+                    </td>
+                    <td>
+                      1.000Un
+                    </td>
+                    <td>
+                      13
+                    </td>
+                    <td>
+                      <button type="button" id="excluir[]" style="display: flex; align-items: center;"><img
+                          src="img/trash01.png" style="height: 1.5rem;" alt=""></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      02/05/2024
+                    </td>
+                    <td>
+                      2060003
+                    </td>
+                    <td>
+                      BISCOITO RECHEADO SABOR BRIGADEIRO SEM LACTOSE
+                    </td>
+                    <td>
+                      PIRAQUÊ
+                    </td>
+                    <td>
+                      80g
+                    </td>
+                    <td>
+                      32
+                    </td>
+                    <td>
+                      <button type="button" id="excluir[]" style="display: flex; align-items: center;"><img
+                          src="img/trash01.png" style="height: 1.5rem;" alt=""></button>
+                    </td>
+                  </tr>
+                </table>
+              </div>
 
             </div>
           </div>
