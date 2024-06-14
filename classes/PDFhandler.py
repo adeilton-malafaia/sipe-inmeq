@@ -1,8 +1,8 @@
+import datetime
 import os
 
 import camelot.io as cm
 import pandas as pd
-
 
 
 class PDFhandler:
@@ -32,13 +32,25 @@ class PDFhandler:
 
             # Navegando em cada linha da tabela atual para adicionar dados nas listas
             for k in (range(1, len(tab[i]))):
-                data.append(str(tab[0][k]))
+                try:
+                    dt = str(tab[0][k])
+                    d = int(dt[0:2])
+                    m = int(dt[3:5])
+                    y = int(dt[6:10])
+                    dat = datetime.datetime(y, m, d)
+                    data.append(dat)
+                except Exception:
+                    data.append('')
+
                 tc.append(int(tab[5][k]))
                 tipo_saida.append('')
                 produto.append(tab[3][k])
                 marca.append(tab[6][k])
                 qn.append(tab[7][k])
-                qt.append((tab[8][k]))
+                try:
+                    qt.append(int(tab[8][k]))
+                except Exception:
+                    qt.append(5)
                 
         # Criando um dicionário com as listas...
         self.data = {
