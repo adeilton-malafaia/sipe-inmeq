@@ -1,3 +1,15 @@
 from django.contrib import admin
 
-# Register your models here.
+from . import models
+
+
+class EntidadeAdmin(admin.ModelAdmin):
+    ...
+
+
+class DestinoAdmin(admin.ModelAdmin):
+    ...
+
+
+admin.site.register(models.Entidade, EntidadeAdmin)
+admin.site.register(models.Destino, DestinoAdmin)
