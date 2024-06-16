@@ -16,19 +16,27 @@ class Entidade(models.Model):
         return self.rs
 
 
-class Destino(models.Model):
+class Lancamento(models.Model):
     id = models.IntegerField(primary_key=True)  # type: ignore
     data = models.DateField()  # type: ignore
     tipo_saida = models.CharField(max_length=2)  # type: ignore
     produto = models.CharField(max_length=60)  # type: ignore
     marca = models.CharField(max_length=50)  # type: ignore
     qn = models.CharField(max_length=10)  # type: ignore
+    unid = models.CharField(max_length=5, default=None)  # type: ignore
     quant = models.SmallIntegerField()  # type: ignore
     cnpj = models.ForeignKey(
         Entidade,
         on_delete=models.SET_NULL,
-        null=True
+        null=True,
+        default=None
     )  # type: ignore
 
     def __str__(self):
         return self.id
+
+
+class RegistroLancamento(models.Model):
+    dataRegistro: models.DateField()  # type: ignore
+    respINMEQ: models.CharField(max_length=50)  # type: ignore
+    testINMEQ: models.CharField(max_length=50)  # type: ignore
