@@ -36,7 +36,7 @@ class Lancamento(models.Model):
         return self.id
 
 
-class RegistroLancamento(models.Model):
+class RegistroLancamentos(models.Model):
     dataRegistro: models.DateField()  # type: ignore
     respINMEQ: models.CharField(max_length=50)  # type: ignore
     testINMEQ: models.CharField(max_length=50)  # type: ignore
