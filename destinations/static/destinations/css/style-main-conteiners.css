@@ -8,7 +8,7 @@
   ;
   grid-template-columns: 100%;
 
-  grid-template-rows: 8vh 87vh 5vh;
+  grid-template-rows: 10vh 85vh 5vh;
 }
 
 .grid-header{
@@ -21,6 +21,7 @@
   grid-area: hd;
   align-items: center;
   justify-content: center;
+  /* padding: 1rem; */
 }
 
 .grid-main{
@@ -57,7 +58,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1rem;
+  padding: 0 1rem;
+}
+
+.div-col-align-left{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
 }
 
 .logo{
@@ -75,7 +82,7 @@
 .div-form-tit{
   background-color: black;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   display: flex;
   flex-direction: column;
@@ -89,11 +96,18 @@
 }
 
 .div-form-footer{
-  background-color: gray;
+  background-color: rgb(63, 62, 62);
   color: white;
   font-weight: bold;
+  display: flex;
+  padding: 1rem;
 }
 
-.div-form-tit, .div-form-content, .div-form-footer{
+.div-form-tit, .div-form-content{
   padding: 0.8rem;
+}
+
+/*********** Estilos para tabelas ***********/
+table{
+  border-collapse: collapse;
 }

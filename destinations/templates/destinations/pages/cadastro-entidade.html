@@ -1,107 +1,86 @@
 {% include "destinations/partials/head.html" %}
-<body>
 
-  <div class="grid-container">
+<main class="grid-main">
 
-    <header class="grid-header">
-      {% load static %}
-      <img class="logo" src="{% static 'destinations/img/logo_inmeq_inmetro.png' %}">
-      <div class="container-header">SIDPE - Sistema Integrado da Divisão de Pré-Embalados</div>
-    </header>
-
-    <nav class="grid-nav" id="itens">
-      <div id="metas" class="item-menu">METAS</div>
-      <div id="dir" class="item-menu">DOAÇÃO/INUTILIZAÇÃO/RETIRADA</div>
-      <div id="simulacoes" class="item-menu">SIMULAÇÕES</div>
-      <div id="sair" class="item-menu">SAIR</div>
-    </nav>
-
-    <section class="grid-section" id="subitens">
-      <div class="item-submenu" id="rdir">REGISTRAR DESTINO DE PRODUTOS</div>
-      <div class="item-submenu" id="cnt">REGISTRAR DOAÇÃO</div>
-      <div class="item-submenu" id="cnt">CADASTRO DE ENTIDADES</div>
-      <div class="item-submenu" id="gpl">GERAR PLANILHA SGI</div>
-      <div class="item-submenu" id="cnc">CANCELAR</div>
-    </section>
-
-    <main class="grid-main">
-
-      <h2>CADASTRO DE ENTIDADES PARA DOAÇÕES</h2>
-
-      <div>
-        <form autocomplete="off">
-
-          <div class="div-comum-block">
-            <div class="div-output-block">
-              <label for="entidades">Entidades cadastradas:&nbsp;</label><br>
-              <select name="entidades" id="entidades" style="width: 45.5rem;">
-                <option value=""></option>
-              </select>
-            </div>
-
-            <div class="div-output-block">
-              <div class="div-comum-block">
-                <label for="rs">Razão Social</label>
-                <input type="text" name="rs" id="rs" style="width: 45rem;" disabled>
-              </div>
-              <div class="div-comum-block">
-                <label for="cnpj">CNPJ</label>
-                <input type="text" name="cnpj" id="cnpj" style="width: 45rem;" disabled>
-              </div>
-              <div class="div-comum-block">
-                <label for="contatos">Contato(s)</label>
-                <input type="text" name="contatos" id="contatos" style="width: 45rem;" disabled>
-              </div>
-              <div class="div-comum-block">
-                <label for="email">E-mail</label>
-                <input type="text" name="email" id="email" style="width: 45rem;" disabled>
-              </div>
-
-              <div class="div-comum-inline">
-                <label for="telefones">Telefone(s)&nbsp;&nbsp;</label>
-                <input type="text" name="telefone" id="telefones" placeholder="Ex.: (XX) XXXXX-XXXX"
-                  style="width: 24rem;" disabled>&nbsp;&nbsp;
-                <span>Ativo?&nbsp;&nbsp;</span>
-                <span>Sim</span>&nbsp;&nbsp;
-                <input type="radio" id="ativo" name="ativo" value="s" checked disabled>&nbsp;&nbsp;
-                <span>Não</span>&nbsp;&nbsp;
-                <input type="radio" id="ativo" name="ativo" value="n" disabled>
-              </div>
-
-              <div class="div-comum-block">
-                <label for="validade">Cadastro válido até</label>
-                <input type="date" name="validade" id="validade" style="width: 12rem; height: 1.5rem;" disabled>
-              </div>
-
-              <div class="div-comum-inline">
-                <button type="button" style="width: 8rem;" id="novo">Novo</button>&nbsp;&nbsp;
-                <button type="button" style="width: 8rem;" disabled id="salvar">Salvar</button>&nbsp;&nbsp;
-                <button type="button" style="width: 8rem;" id="cancelar">Cancelar</button>
-              </div>
-
-
-            </div>
-          </div>
-
-        </form>
+  <div class="div-form">
+    <form autocomplete="off">
+      <div class="div-form-tit">
+        ENTIDADES
       </div>
 
-    </main>
+      <div class="div-form-content" style="border-bottom: 0.2rem inset gray; padding-bottom: 2rem;">
+        <label for="entidade">
+          ENTIDADES CADASTRADAS:
+        </label>
+        <select name="entidade" id="entidade">
+          <option value=""> </option>
+          <option value="">Entidade 1</option>
+          <option value="">Entidade 2</option>
+          <option value="">Entidade 3</option>
+        </select>
+      </div>
 
+      <div class="div-form-content">
+
+        <div class="div-flex-row">
+          <div class="div-col-align-left">
+            <label for="cnpj">
+              CNPJ:
+            </label>
+            <input type="text" name="cnpj" id="cnpj" style="width: 40.5rem;">
+          </div>
+
+          <div class="div-col-align-left" style="padding-left: 1rem;  ">
+            <span>ATIVO?</span>
+            <div class="div-flex-row" style="padding: 0.5rem 0 0 0; align-items: end;">
+              <label for="ativo-s" style="padding: 0;">SIM&nbsp;</label>
+              <input type="radio" name="ativo" id="ativo-s" value="s">&nbsp;&nbsp;
+              <label for="ativo-n" style="padding: 0;">NÃO&nbsp;</label>
+              <input type="radio" name="ativo" id="ativo-n" value="n">
+            </div>
+          </div>
+        </div>
+
+        <label for="rs">
+          RAZÃO SOCIAL:
+        </label>
+        <input type="text" name="rs" id="rs">
+
+        <label for="nf">
+          NOME FANTASIA:
+        </label>
+        <input type="text" name="nf" id="nf">
+
+        <label for="contatos">
+          CONTATO(S):
+        </label>
+        <input type="text" name="contatos" id="contatos">
+
+        <label for="email">
+          E-MAIL:
+        </label>
+        <input type="text" name="email" id="email">
+
+        <div class="div-flex-row">
+          <div class="div-col-align-left">
+            <label for="fones">FONE(S):</label>
+            <input type="text" name="fones" id="fones" style="width: 38.8rem;">
+          </div>
+          <div class="div-col-align-left" style="margin-left: 1rem;">
+            <label for="validade">VÁLIDO ATÉ:</label>
+            <input type="date" name="validade" id="validade">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="div-form-footer">
+        <button type="button">NOVO</button>&nbsp;&nbsp;
+        <button type="button">SALVAR</button>&nbsp;&nbsp;
+        <button type="button">CANCELAR</button>
+      </div>
+    </form>
   </div>
-</body>
 
-</html>
-<script>
-
-  $(document).ready(function () {
-
-    $("#dir").click(function () {
-
-      $("#subitens").slideDown("slow");
-
-    });
-
-  })
-
-</script>
+</main>
+{% include "destinations/partials/footer.html" %}
