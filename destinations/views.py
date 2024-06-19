@@ -5,6 +5,10 @@ def entidades(request):  # View de rota para cadastro de entidades
     return render(request, 'destinations/pages/cadastro-entidade.html')
 
 
+def entidades_alt(request):  # View de rota para cadastro de entidades
+    return render(request, 'destinations/pages/cadastro-entidades-new.html')
+
+
 def destino(request):  # View de rota para registro de destino de produtos
     return render(request, 'destinations/pages/registro-destino.html')
 

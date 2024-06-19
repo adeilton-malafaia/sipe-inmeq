@@ -11,8 +11,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% load static %}
   <link rel="stylesheet" href="{% static 'destinations/css/style-main.css' %}">
-  <link rel="stylesheet" href="{% static 'destinations/css/style-menus.css' %}">
-  <link rel="stylesheet" href="{% static 'destinations/css/style-conteiners.css' %}">
+  <link rel="stylesheet" href="{% static 'destinations/css/style-main-conteiners.css' %}">
   <link rel="stylesheet" href="{% static 'destinations/css/style-forms.css' %}">
   <title>SIDPE - Sistema Integrado da Divisão de Pré-Embalados</title>
 </head>
+<body>
+
+  <div class="grid-container">
+
+    <header class="grid-header">
+      <div class="div-flex-row">
+        {% load static %}
+        <img class="logo" src="{% static 'destinations/img/logo_inmeq_inmetro.png' %}">
+        <div class="div-flex-row">SIDPE - Sistema Integrado da Divisão de Pré-Embalados</div>
+      </div>
+    </header>

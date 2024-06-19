@@ -1,0 +1,99 @@
+/********** Estilos para grid da página **********/
+.grid-container{
+  display: grid;
+  grid-template-areas:
+  "hd"
+  "mn"
+  "ft"
+  ;
+  grid-template-columns: 100%;
+
+  grid-template-rows: 8vh 87vh 5vh;
+}
+
+.grid-header{
+  background-color: #17123b;
+  color: white;
+  border-style: none;
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  grid-area: hd;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-main{
+  grid-area: mn;
+  background-color: rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding-top: 3rem;
+  font-size: 1rem;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.grid-footer{
+  background-color: #17123b;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+/*********** Estilos para divs genéicos ***********/
+.div-flex-row{
+  flex-direction: row;
+}
+
+.div-flex-col{
+  flex-direction: column;
+}
+
+.div-flex-row, .div-flex-col{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem;
+}
+
+.logo{
+  border-radius: 1rem;
+  height: 4.5rem;
+}
+
+/*********** Estilos para contêineres de forms ***********/
+
+.div-form{
+  box-shadow: 0.5rem 1rem 1.8rem #888888;
+  width: 52rem;
+}
+
+.div-form-tit{
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.div-form-content{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.div-form-footer{
+  background-color: gray;
+  color: white;
+  font-weight: bold;
+}
+
+.div-form-tit, .div-form-content, .div-form-footer{
+  padding: 0.8rem;
+}

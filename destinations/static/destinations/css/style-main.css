@@ -3,46 +3,16 @@
   margin: 0;
 }
 
-body, input, option, select, button{
-  height: 100%;
-  background-color: rgb(217, 223, 248);
+body{
   color: #17123b;
   font-family: "Exo 2", sans-serif;
   font-optical-sizing: auto;
   font-weight: bold;
   font-style: normal;
-  text-transform: uppercase;
 }
 
 html{
   font-size: 62.5%;
   padding: 0;
   margin: 0;
-}
-
-table{
-  width: 70rem;
-  border-collapse: collapse;
-  margin-top: 2rem;
-}
-
-.table-simples{
-  border-collapse: collapse;
-}
-
-th{
-  padding: 0.4rem;
-  text-align: left;
-  background-color: #281f69;
-  color: white
-}
-
-td{
-  text-align: left;
-  height: 2rem;
-  padding: 0.4rem;
-}
-
-tr{
-  border-bottom: 0.1rem solid #17123b;
 }
