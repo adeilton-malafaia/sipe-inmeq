@@ -1,7 +1,6 @@
-{% include "destinations/partials/head.html" %}
+{% extends "destinations/global_templates/destinations-global.html" %}
 
-<main class="grid-main">
-
+  {% block content %}
   <div class="div-form">
     <form autocomplete="off">
       <div class="div-form-tit">
@@ -81,6 +80,4 @@
       </div>
     </form>
   </div>
-
-</main>
-{% include "destinations/partials/footer.html" %}
+  {% endblock content %}
