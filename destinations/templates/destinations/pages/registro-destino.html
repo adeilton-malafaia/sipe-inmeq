@@ -1,73 +1,9 @@
 {% include "destinations/partials/head.html" %}
-<main class="grid-main">
 
-  <div class="div-form" style="width: 80rem;">
-    <form autocomplete="off">
-      <div class="div-form-tit">
-        REGISTRO DE SAÍDAS DIÁRIAS
-      </div>
-      <div class="div-form-content" style="border-bottom: 0.3rem inset gray;">
-        <input type="file" name="file" id="file">&nbsp;
-        <div class="div-flex-row">
-          <button type="button" id="cancelar">Cancelar</button>&nbsp;
-          <button type="button" id="salvar" disabled>Salvar</button>
-        </div>
-      </div>
-      <div class="div-form-content">
-        <table>
-          <tr>
-            <th>DATA</th>
-            <th>TC</th>
-            <th>DESTINO</th>
-            <th>PRODUTO</th>
-            <th>MARCA</th>
-            <th>QN</th>
-            <th>QUANT</th>
-          </tr>
-        </table>
-        <div style="overflow: auto;">
-          <table>
-            <tr>
-              <td>
-                <input type="date" name="data[]" id="data[]" size="8rem" value="">
-              </td>
-              <td>
-                <input type="text" name="tc[]" id="tc[]" size="6rem" value="">
-              </td>
-              <td>
-                <select name="destino[]" id="destino[]">
-                  <option value=""></option>
-                  <option value="d">Doação</option>
-                  <option value="i">Inutilização</option>
-                  <option value="r">Retirada</option>
-                </select>
-              </td>
-              <td>
-                <input type="text" name="produto[]" id="produto[]" size="35rem" value="">
-              </td>
-              <td>
-                <input type="text" name="marca[]" id="marca[]" size="12rem" value="">
-              </td>
-              <td>
-                <input type="text" name="qn[]" id="qn[]" size="4rem" value="">
-              </td>
-              <td>
-                <input type="text" name="quant[]" id="quant[]" size="2rem" value="">&nbsp;
-              </td>
-              <td>
-                <button type="button" id="excluir[]" disabled style="display: flex; align-items: center;">
-                  <i class="fa-solid fa-trash-can"></i>
-                </button>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div class="div-form-footer">
+    <main class="grid-main">
 
-      </div>
-    </form>
-  </div>
 
-</main>
+
+    </main>
+
 {% include "destinations/partials/footer.html" %}

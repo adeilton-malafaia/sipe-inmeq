@@ -107,6 +107,20 @@
   padding: 0.8rem;
 }
 
+/*********** Estilos para o contêiner de saídas diárias ***********/
+.grid-saidas{
+  display: grid;
+  grid-template-columns: 10rem 7.5rem 9.5rem 29rem 12rem 6rem 10rem;
+}
+
+.grid-saidas > div{
+  display: flex;
+}
+
+.grid-sadas > div > input[type='text']{
+  width: 100%;
+}
+
 /*********** Estilos para tabelas ***********/
 table{
   border-collapse: collapse;
