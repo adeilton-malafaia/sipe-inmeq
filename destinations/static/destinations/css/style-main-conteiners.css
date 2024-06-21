@@ -77,6 +77,7 @@
 .div-form{
   box-shadow: 0.5rem 1rem 1.8rem #888888;
   width: 52rem;
+  margin-bottom: 3rem;
 }
 
 .div-form-tit{
@@ -111,13 +112,16 @@
 .grid-saidas{
   display: grid;
   grid-template-columns: 10rem 7.5rem 9.5rem 29rem 12rem 6rem 10rem;
+  max-height: 57rem;
 }
 
 .grid-saidas > div{
   display: flex;
+  padding: 0.2rem 0 0.2rem 0;
+  transition: all 0.4s ease-in-out;
 }
 
-.grid-sadas > div > input[type='text']{
+.grid-saidas > div > input[type='text']{
   width: 100%;
 }
 

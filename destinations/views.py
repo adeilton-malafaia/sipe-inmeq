@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from utils.destinations.factory import makeSaida
+
 
 def home(request):
     return render(request, 'destinations/pages/index.html')
@@ -10,7 +12,11 @@ def entidades(request):  # View de rota para cadastro de entidades
 
 
 def saidas(request):  # View de rota para registro de destino de produtos
-    return render(request, 'destinations/pages/registro-saidas.html')
+    return render(request,
+                  'destinations/pages/registro-saidas.html',
+                  context={
+                    'saidas': [makeSaida() for _ in range(30)]
+                  })
 
 
 def registrodestino(request):  # View de rota para registro de doação
