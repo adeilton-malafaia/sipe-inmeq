@@ -75,9 +75,13 @@
 /*********** Estilos para contêineres de forms ***********/
 
 .div-form{
+  background-color: white;
   box-shadow: 0.5rem 1rem 1.8rem #888888;
-  width: 52rem;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 3rem;
+  max-height: 51rem;
+  width: 88rem;
 }
 
 .div-form-tit{
@@ -85,6 +89,7 @@
   color: white;
   font-size: 1.2rem;
   font-weight: bold;
+  width: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,6 +99,9 @@
   background-color: white;
   display: flex;
   flex-direction: column;
+  max-height: 32rem;
+  width: inherit;
+  overflow-y: auto;
 }
 
 .div-form-footer{
@@ -102,6 +110,7 @@
   font-weight: bold;
   display: flex;
   padding: 1rem;
+  width: inherit;
 }
 
 .div-form-tit, .div-form-content{
@@ -111,18 +120,22 @@
 /*********** Estilos para o contêiner de saídas diárias ***********/
 .grid-saidas{
   display: grid;
-  grid-template-columns: 10rem 7.5rem 9.5rem 29rem 12rem 6rem 10rem;
-  max-height: 57rem;
+  grid-template-columns: 10rem 7.5rem 9.7rem 29rem 12rem 6.3rem 10rem;
+  width: 87rem;
+  max-height: 50rem;
 }
 
 .grid-saidas > div{
   display: flex;
+  justify-content: left;
   padding: 0.2rem 0 0.2rem 0;
+  margin-right: 1rem;
+  box-sizing: border-box;
   transition: all 0.4s ease-in-out;
 }
 
 .grid-saidas > div > input[type='text']{
-  width: 100%;
+  width: 95%;
 }
 
 /*********** Estilos para tabelas ***********/

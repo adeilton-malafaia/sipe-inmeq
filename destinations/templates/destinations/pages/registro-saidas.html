@@ -1,19 +1,19 @@
 {% extends "destinations/global_templates/destinations-global.html" %}
 {% block content %}
-<div class="div-form" style="width: 90rem;">
+<div class="div-form">
   <form autocomplete="off">
     <div class="div-form-tit">
       REGISTRO DE SAÍDAS DIÁRIAS
     </div>
-    <div class="div-form-content" style="border-bottom: 0.3rem inset gray;">
+    <div class="div-form-footer">
       <input type="file" name="file" accept="application/pdf" id="file">&nbsp;
       <div class="div-flex-row">
+        <button type="button" id="carregar_dados" disabled>Carregar Dados</button>&nbsp;
         <button type="button" id="cancelar">Cancelar</button>&nbsp;
-        <button type="button" id="salvar" disabled>Salvar</button>
       </div>
     </div>
-    <div class="div-form-content">
-      <div class="grid-saidas" style="width: 85rem;">
+    <div class="div-form-content" style="overflow-y: unset">
+      <div class="grid-saidas">
         <div>DATA</div>
         <div>TC</div>
         <div>DESTINO</div>
@@ -22,37 +22,37 @@
         <div>QN</div>
         <div>QUANT</div>
       </div>
-      <div class="grid-saidas" style="width: 85rem; overflow: auto;">
+      <div class="grid-saidas" style="overflow-y: auto;">
 
         {% for saida in saidas %}
         <div>
-          <input type="date" name="data[]" id="data[]" size="8rem" value="{{saida.data}}">
+          <input type="date" name="data[]" id="data[]" style="width: 9.4rem" value="{{saida.data}}">
         </div>
         <div>
-          <input type="text" name="tc[]" id="tc[]" size="6rem" style="width: 5.7rem;" value="{{saida.tc}}">
+          <input type="text" name="tc[]" id="tc[]" style="width: 5.2rem;" value="{{saida.tc}}">
         </div>
         <div>
           <select name="destino[]" id="destino[]" style="width: 9rem;">
             <option value=""></option>
-          {% if saida.destino == 'd' %}
+            {% if saida.destino == 'd' %}
             <option value="d" selected>Doação</option>
-          {% else %}
+            {% else %}
             <option value="d">Doação</option>
-          {% endif %}
-          {% if saida.destino == 'i' %}
+            {% endif %}
+            {% if saida.destino == 'i' %}
             <option value="i" selected>Inutilização</option>
-          {% else %}
+            {% else %}
             <option value="i">Inutilização</option>
-          {% endif %}
-          {% if saida.destino == 'r'%}
+            {% endif %}
+            {% if saida.destino == 'r'%}
             <option value="r" selected>Retirada</option>
-          {% else %}
+            {% else %}
             <option value="r">Retirada</option>
-          {% endif %}
+            {% endif %}
           </select>
         </div>
         <div>
-          <input type="text" name="produto[]" id="produto[]" style="width: 27rem" value="{{saida.produto}}">
+          <input type="text" name="produto[]" id="produto[]" style="width: 27.2rem" value="{{saida.produto}}">
         </div>
         <div>
           <input type="text" name="marca[]" id="marca[]" size="12rem" value="{{saida.marca}}">
@@ -73,8 +73,9 @@
       </div>
     </div>
     <div class="div-form-footer">
-
+      &nbsp;
     </div>
+    <input type="hidden" name="option" id="option" value="">
   </form>
 </div>
 {% endblock content %}

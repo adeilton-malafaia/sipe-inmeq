@@ -1,8 +1,19 @@
-{% include "destinations/partials/head.html" %} 
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<main class="grid-main">
+  <head>
+    {% include "destinations/partials/head.html" %}
+  </head>
 
-{% block content %}{% endblock content %}
+<body>
 
-</main>
-{% include "destinations/partials/footer.html" %}
+  {% include "destinations/partials/header.html" %}
+
+  <main class="grid-main">
+    {% block content %}{% endblock content %}
+  </main>
+
+  {% include "destinations/partials/footer.html" %}
+
+</body>
+</html>
