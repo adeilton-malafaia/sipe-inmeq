@@ -1,83 +1,85 @@
 {% extends "destinations/global_templates/destinations-global.html" %}
 
-  {% block content %}
-  <div class="div-form">
-    <form autocomplete="off">
-      <div class="div-form-tit">
-        ENTIDADES
-      </div>
+{% block content %}
 
-      <div class="div-form-content" style="border-bottom: 0.2rem inset gray; padding-bottom: 2rem;">
-        <label for="entidade">
-          ENTIDADES CADASTRADAS:
-        </label>
-        <select name="entidade" id="entidade">
-          <option value=""> </option>
-          <option value="">Entidade 1</option>
-          <option value="">Entidade 2</option>
-          <option value="">Entidade 3</option>
-        </select>
-      </div>
+<div class="div-form" style="width: 62.5rem">
+  <form autocomplete="off">
+    <div class="div-form-tit">
+      ENTIDADES
+    </div>
 
-      <div class="div-form-content">
+    <div class="div-form-content" style="border-bottom: 0.2rem inset gray; padding-bottom: 2rem;">
+      <label for="entidade">
+        ENTIDADES CADASTRADAS:
+      </label>
+      <select name="entidade" id="entidade">
+        <option value=""> </option>
+        <option value="">Entidade 1</option>
+        <option value="">Entidade 2</option>
+        <option value="">Entidade 3</option>
+      </select>
+    </div>
 
-        <div class="div-flex-row">
-          <div class="div-col-align-left">
-            <label for="cnpj">
-              CNPJ:
-            </label>
-            <input type="text" name="cnpj" id="cnpj" style="width: 40.5rem;">
-          </div>
+    <div class="div-form-content">
 
-          <div class="div-col-align-left" style="padding-left: 1rem;  ">
-            <span>ATIVO?</span>
-            <div class="div-flex-row" style="padding: 0.5rem 0 0 0; align-items: end;">
-              <label for="ativo-s" style="padding: 0;">SIM&nbsp;</label>
-              <input type="radio" name="ativo" id="ativo-s" value="s">&nbsp;&nbsp;
-              <label for="ativo-n" style="padding: 0;">NÃO&nbsp;</label>
-              <input type="radio" name="ativo" id="ativo-n" value="n">
-            </div>
-          </div>
+      <div class="div-row-left">
+        <div class="div-col-left">
+          <label for="cnpj">
+            CNPJ:
+          </label>
+          <input type="text" name="cnpj" id="cnpj" style="width: 40.5rem;">
         </div>
 
-        <label for="rs">
-          RAZÃO SOCIAL:
-        </label>
-        <input type="text" name="rs" id="rs">
-
-        <label for="nf">
-          NOME FANTASIA:
-        </label>
-        <input type="text" name="nf" id="nf">
-
-        <label for="contatos">
-          CONTATO(S):
-        </label>
-        <input type="text" name="contatos" id="contatos">
-
-        <label for="email">
-          E-MAIL:
-        </label>
-        <input type="text" name="email" id="email">
-
-        <div class="div-flex-row">
-          <div class="div-col-align-left">
-            <label for="fones">FONE(S):</label>
-            <input type="text" name="fones" id="fones" style="width: 38.8rem;">
-          </div>
-          <div class="div-col-align-left" style="margin-left: 1rem;">
-            <label for="validade">VÁLIDO ATÉ:</label>
-            <input type="date" name="validade" id="validade">
+        <div class="div-col-left" style="padding-left: 1rem;  ">
+          <span style="padding-top: 0.3rem">ATIVO?</span>
+          <div class="div-row-left" style="padding-top: 0.4rem; align-items: flex-end;">
+            <label for="ativo-s" style="padding: 0;">SIM&nbsp;</label>
+            <input type="radio" name="ativo" id="ativo-s" value="s">&nbsp;&nbsp;
+            <label for="ativo-n" style="padding: 0;">NÃO&nbsp;</label>
+            <input type="radio" name="ativo" id="ativo-n" value="n">
           </div>
         </div>
-
+        <div class="div-col-left" style="margin-left: 1rem;">
+          <label for="validade">VÁLIDO ATÉ:</label>
+          <input type="date" name="validade" id="validade">
+        </div>
       </div>
 
-      <div class="div-form-footer">
-        <button type="button">NOVO</button>&nbsp;&nbsp;
-        <button type="button">SALVAR</button>&nbsp;&nbsp;
-        <button type="button">CANCELAR</button>
+      <label for="rs">
+        RAZÃO SOCIAL:
+      </label>
+      <input type="text" name="rs" id="rs">
+
+      <label for="nf">
+        NOME FANTASIA:
+      </label>
+      <input type="text" name="nf" id="nf">
+
+      <label for="contatos">
+        CONTATO(S):
+      </label>
+      <input type="text" name="contatos" id="contatos">
+
+      <label for="email">
+        E-MAIL:
+      </label>
+      <input type="text" name="email" id="email">
+
+      <div class="div-row-left">
+        <div class="div-col-left">
+          <label for="fones">FONE(S):</label>
+          <input type="text" name="fones" id="fones" style="width: 38.8rem;">
+        </div>
       </div>
-    </form>
-  </div>
-  {% endblock content %}
+
+    </div>
+
+    <div class="div-form-footer">
+      <button type="button">NOVO</button>&nbsp;&nbsp;
+      <button type="button">SALVAR</button>&nbsp;&nbsp;
+      <button type="button">CANCELAR</button>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}

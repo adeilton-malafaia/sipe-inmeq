@@ -46,25 +46,26 @@
 }
 
 /*********** Estilos para divs genéicos ***********/
-.div-flex-row{
-  flex-direction: row;
-}
-
-.div-flex-col{
-  flex-direction: column;
-}
-
-.div-flex-row, .div-flex-col{
-  display: flex;
-  align-items: center;
+.div-row-center{
   justify-content: center;
-  padding: 0 1rem;
 }
 
-.div-col-align-left{
-  display: flex;
-  flex-direction: column;
+.div-row-left{
   justify-content: left;
+}
+
+.div-col-center{
+  justify-content: center;
+  flex-direction: column;
+}
+
+.div-col-left{
+  justify-content: left;
+  flex-direction: column;
+}
+
+.div-row-center, .div-row-left, .div-col-center, .div-col-left{
+  display: flex;
 }
 
 .logo{
