@@ -3,13 +3,11 @@ from django.contrib import admin
 from . import models
 
 
+@admin.register(models.Entidade)
 class EntidadeAdmin(admin.ModelAdmin):
     ...
 
 
+@admin.register(models.Lancamento)
 class LancamentoAdmin(admin.ModelAdmin):
     ...
-
-
-admin.site.register(models.Entidade, EntidadeAdmin)
-admin.site.register(models.Lancamento, LancamentoAdmin)

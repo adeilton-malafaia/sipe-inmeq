@@ -14,9 +14,9 @@
       </label>
       <select name="entidade" id="entidade">
         <option value=""> </option>
-        <option value="">Entidade 1</option>
-        <option value="">Entidade 2</option>
-        <option value="">Entidade 3</option>
+      {% for ent in entidades %}
+        <option value="{{ ent.cnpj }}">{{ ent.rs }}</option>
+      {% endfor %}
       </select>
     </div>
 

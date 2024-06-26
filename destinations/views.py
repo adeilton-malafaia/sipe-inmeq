@@ -2,13 +2,18 @@ from django.shortcuts import render
 
 from utils.destinations.factory import makeSaida
 
+from .models import Entidade
+
 
 def home(request):
     return render(request, 'destinations/pages/index.html')
 
 
 def entidades(request):  # View de rota para cadastro de entidades
-    return render(request, 'destinations/pages/cadastro-entidade.html')
+    entidades = Entidade.objects.all().order_by('rs').filter(ativo='s')
+    return render(request,
+                  'destinations/pages/cadastro-entidade.html',
+                  context={'entidades': entidades})
 
 
 def saidas(request):  # View de rota para registro de destino de produtos
