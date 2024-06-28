@@ -1,0 +1,22 @@
+{% extends "destinations/global_templates/destinations-global.html" %}
+
+  {% block content %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="div-form" style="width: 45rem">
+      <div class="div-form-tit">
+        ENTIDADES
+      </div>
+      <div class="div-form-content div-row-left">
+      {% for field in form %}
+        <label class="uppercase" for="{{field.id_for_label_content}}">{{ field.label }}</label>
+        {{ field }}
+      {% endfor %}
+      </div>
+      <div class="div-form-footer">
+        <button type="button">Salvar</button>&nbsp;&nbsp;
+        <button type="button">Cancelar</button>
+      </div>
+    </div>
+  </form>
+  {% endblock content %}

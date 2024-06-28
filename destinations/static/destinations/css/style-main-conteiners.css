@@ -45,9 +45,10 @@
   padding: 0 2rem;
 }
 
-/*********** Estilos para divs genéicos ***********/
+/*********** Estilos para divs genéricos ***********/
 .div-row-center{
   justify-content: center;
+  align-items: center;
 }
 
 .div-row-left{
@@ -66,11 +67,6 @@
 
 .div-row-center, .div-row-left, .div-col-center, .div-col-left{
   display: flex;
-}
-
-.logo{
-  border-radius: 1rem;
-  height: 4.5rem;
 }
 
 /*********** Estilos para contêineres de forms ***********/
@@ -142,4 +138,9 @@
 /*********** Estilos para tabelas ***********/
 table{
   border-collapse: collapse;
+}
+
+/*********** Estilos para formatação de texto ***********/
+.uppercase{
+  text-transform: uppercase;
 }

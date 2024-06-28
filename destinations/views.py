@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from utils.destinations.factory import makeSaida
 
-from .models import Entidade
+from . import forms, models
 
 
 def home(request):
@@ -10,17 +10,28 @@ def home(request):
 
 
 def entidades(request):  # View de rota para cadastro de entidades
-    entidades = Entidade.objects.all().order_by('rs').filter(ativo='s')
+    entidades = models.Entidade.objects.all().order_by('rs').filter(ativo='s')
     return render(request,
                   'destinations/pages/cadastro-entidade.html',
                   context={'entidades': entidades})
+
+
+def cadentidades(request):  # View de rota para cadastro de entidades
+    if request.POST:
+        form = forms.EntidadeForm(request.POST)
+    else:
+        form = forms.EntidadeForm()
+    return render(request,
+                  'destinations/pages/entidades.html',
+                  {'form': form, }
+                  )
 
 
 def saidas(request):  # View de rota para registro de destino de produtos
     return render(request,
                   'destinations/pages/registro-saidas.html',
                   context={
-                    'saidas': [makeSaida() for _ in range(30)]
+                      'saidas': [makeSaida() for _ in range(30)]
                   })
 
 
