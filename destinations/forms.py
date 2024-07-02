@@ -16,3 +16,14 @@ class EntidadeForm(forms.ModelForm):
             'validade',
             'ativo',
         ]
+        labels = {
+            'rs': 'Razão Social',
+            'nf': 'Nome de Fantasia',
+            'email': 'E-mail',
+            'fones': 'Telefones',
+        }
+        widgets = {
+            'cnpj': forms.TextInput(),
+            # 'validade': forms.DateTimeField()
+            # 'ativo': forms.RadioSelect()
+        }

@@ -18,7 +18,9 @@ def entidades(request):  # View de rota para cadastro de entidades
 
 def cadentidades(request):  # View de rota para cadastro de entidades
     if request.POST:
-        form = forms.EntidadeForm(request.POST)
+        POST = request.POST
+        request.session['register_form_entidades'] = POST
+        form = forms.EntidadeForm(POST)
     else:
         form = forms.EntidadeForm()
     return render(request,
