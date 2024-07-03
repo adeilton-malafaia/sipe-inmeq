@@ -25,5 +25,10 @@ class EntidadeForm(forms.ModelForm):
         widgets = {
             'cnpj': forms.TextInput(),
             # 'validade': forms.DateTimeField()
-            # 'ativo': forms.RadioSelect()
+            'ativo': forms.RadioSelect(
+                choices=[('s', 'Sim'), ('n', 'Não')],
+                attrs={
+                    'class': 'div-row-left',
+                }
+            )
         }
