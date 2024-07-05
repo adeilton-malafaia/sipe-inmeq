@@ -8,6 +8,9 @@
         ENTIDADES
       </div>
       <div class="div-form-content">
+        {{ form.select_entidade.label_tag }} {{ form.select_entidade }}
+      </div>
+      <div class="div-form-content">
       {% for field in form %}
         <div>
           <label for="{{ field.id_for_label }}">{{ field.label }}</label>

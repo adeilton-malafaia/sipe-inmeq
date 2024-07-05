@@ -17,6 +17,8 @@ def entidades(request):  # View de rota para cadastro de entidades
 
 
 def cadentidades(request):  # View de rota para cadastro de entidades
+    # Iterável com entidades cadastradas
+    # entidades = models.Entidade.objects.all().order_by('rs').filter(ativo='s')
     if request.POST:
         POST = request.POST
         request.session['register_form_entidades'] = POST

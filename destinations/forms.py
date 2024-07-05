@@ -16,12 +16,14 @@ class EntidadeForm(forms.ModelForm):
             'validade',
             'ativo',
         ]
+
         labels = {
             'rs': 'Razão Social',
             'nf': 'Nome de Fantasia',
             'email': 'E-mail',
             'fones': 'Telefones',
         }
+
         widgets = {
             'cnpj': forms.TextInput(),
             # 'validade': forms.DateTimeField()
@@ -32,3 +34,10 @@ class EntidadeForm(forms.ModelForm):
                 }
             )
         }
+
+    select_entidade = forms.ChoiceField(
+        # choices=[models.Entidade.objects.all()],
+        label='Entidades cadastradas:'
+    )
+
+    select_entidade.label
