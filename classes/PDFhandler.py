@@ -10,13 +10,15 @@ class PDFhandler:
         self.filename = filename
         self.url = "/home/" + str(os.environ.get('USERNAME')) + "/Documentos/"
         self.data = ''
-    
+
     def readFile(self):
         # Extraindo todas as tabelas existentes do PDF para um objeto Camelot.
-        # O objeto é uma espeçie de array de tabelas (se houver mais de uma página)
-        tbl = cm.read_pdf(self.url + self.filename + ".pdf",'all')
-        
-        # Criando listas vazias, uma para cada coluna da planilha que será gerada...
+        # O objeto é uma espeçie de array de tabelas (se houver mais de uma
+        # página)
+        tbl = cm.read_pdf(self.url + self.filename + ".pdf", 'all')
+
+        # Criando listas vazias, uma para cada coluna da planilha que será
+        # gerada...
         data = list()
         tc = list()
         tipo_saida = list()
@@ -30,7 +32,8 @@ class PDFhandler:
             # Tabela (dataset) atual
             tab = tbl[i].df
 
-            # Navegando em cada linha da tabela atual para adicionar dados nas listas
+            # Navegando em cada linha da tabela atual para adicionar dados nas
+            # listas
             for k in (range(1, len(tab[i]))):
                 try:
                     dt = str(tab[0][k])
@@ -51,16 +54,16 @@ class PDFhandler:
                     qt.append(int(tab[8][k]))
                 except Exception:
                     qt.append(5)
-                
+
         # Criando um dicionário com as listas...
         self.data = {
-            'data' : data,
-            'tc' : tc,
-            'tipo_saida' : tipo_saida,
-            'produto' : produto,
-            'marca' : marca,
-            'qn' : qn,
-            'qt' : qt
+            'data': data,
+            'tc': tc,
+            'tipo_saida': tipo_saida,
+            'produto': produto,
+            'marca': marca,
+            'qn': qn,
+            'qt': qt
         }
 
     def exportData(self):

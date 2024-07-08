@@ -8,20 +8,25 @@
         ENTIDADES
       </div>
       <div class="div-form-content">
-        {{ form.select_entidade.label_tag }} {{ form.select_entidade }}
+        <div class="div-col-left">
+          {{ form.select_entidade.label_tag }}
+          {{ form.select_entidade }}
+        </div>
       </div>
       <div class="div-form-content">
       {% for field in form %}
+        {% if field.label != 'Ativo?' and field.label != 'Entidades cadastradas:' %}
         <div>
-          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-          {{ field }}
-          {% if field.help_text %}
-            <p class="help_text">
-              {{ field.help_text }}
-            </p>
-            {{ field.errors}}
-          {% endif %}
-        </div>
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.help_text %}
+              <p class="help_text">
+                {{ field.help_text }}
+              </p>
+              {{ field.errors}}
+            {% endif %}
+          </div>
+        {% endif %}
       {% endfor %}
       </div>
       <div class="div-form-footer">

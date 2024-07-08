@@ -93,6 +93,13 @@ input[type='date']:focus{
   background-color: #ccffff;
 }
 
+select{
+  appearance: none;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 1.2rem;
+}
+
 option, input, option, select, input[type='radio'], input[type='date']{
   height: 1.7rem;
   background-color: rgba(0,0,0,0.07);
