@@ -42,9 +42,20 @@ class EntidadeForm(forms.ModelForm):
             'ativo': 'Ativo?'
         }
 
+        help_texts = {
+            'rs': 'A razão social é obrigatória',
+            'ativo': 'Você deve selecionar uma opção'
+        }
+
+        error_messages = {
+            'cnpj': {
+                'required': 'Este campo não pode ficar vazio',
+                'invalid': 'Digite apenas números'
+            }
+        }
+
         widgets = {
             'cnpj': forms.TextInput(),
-            # 'validade': forms.DateTimeField()
             'ativo': forms.RadioSelect(
                 choices=[('s', 'Sim'), ('n', 'Não')],
                 attrs={

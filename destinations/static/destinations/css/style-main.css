@@ -22,3 +22,7 @@ html{
   height: 4.5rem;
   margin-right: 1rem;
 }
+
+.uppercase{
+  text-transform: uppercase;
+}

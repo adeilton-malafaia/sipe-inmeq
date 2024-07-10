@@ -1,38 +1,59 @@
 {% extends "destinations/global_templates/destinations-global.html" %}
 
-  {% block content %}
-  <form action="" method="POST" autocomplete="off">
-    {% csrf_token %}
-    <div class="div-form">
-      <div class="div-form-tit">
-        ENTIDADES
-      </div>
-      <div class="div-form-content">
-        <div class="div-col-left">
-          {{ form.select_entidade.label_tag }}
-          {{ form.select_entidade }}
-        </div>
-      </div>
-      <div class="div-form-content">
-      {% for field in form %}
-        {% if field.label != 'Ativo?' and field.label != 'Entidades cadastradas:' %}
-        <div>
-            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-            {{ field }}
-            {% if field.help_text %}
-              <p class="help_text">
-                {{ field.help_text }}
-              </p>
-              {{ field.errors}}
-            {% endif %}
-          </div>
-        {% endif %}
-      {% endfor %}
-      </div>
-      <div class="div-form-footer">
-        <button type="submit">Salvar</button>&nbsp;&nbsp;
-        <button type="button">Cancelar</button>
+{% block content %}
+<form action="" method="POST" autocomplete="off">
+  {% csrf_token %}
+  <div class="div-form">
+    <div class="div-form-tit">
+      ENTIDADES
+    </div>
+    <div class="div-form-content">
+      <div class="div-col-left">
+        {{ form.select_entidade.label_tag }}
+        {{ form.select_entidade }}
       </div>
     </div>
-  </form>
-  {% endblock content %}
+    <div class="div-form-content">
+      {% for field in form %}
+      {% if field.label != 'Ativo?' and field.label != 'Entidades cadastradas:' %}
+      <div>
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.help_text %}
+        <p class="help_text">
+          {{ field.help_text }}
+        </p>
+        {% endif %}
+
+        {% if field.error_messagens %}
+        <p class="error">
+          {{field.error_messages}}
+        </p>
+        {% endif %}
+      </div>
+      {% endif %}
+      {% endfor %}
+      <div>
+        <div class="uppercase" style="height: 2rem;">
+          {{ form.ativo.label }}
+        </div>
+        <div class="div-row-left">
+          {% for opt in form.ativo %}
+          <div class="div-row-left" style="align-items: end; width: 6rem;">
+            <label for="{{ opt.id_for_label }}">{{ opt.choice_label }}</label>
+            {{ opt.tag }}
+          </div>
+          {% endfor %}
+        </div>
+        <span class="help_text">
+          {{ form.ativo.help_text }}
+        </span>
+      </div>
+    </div>
+    <div class="div-form-footer">
+      <button type="submit">Salvar</button>&nbsp;&nbsp;
+      <button type="button">Cancelar</button>
+    </div>
+  </div>
+</form>
+{% endblock content %}
