@@ -38,6 +38,7 @@ class EntidadeForm(forms.ModelForm):
             'nf': 'Nome de Fantasia',
             'email': 'E-mail',
             'fones': 'Telefones',
+            'validade': 'Validade do cadastro',
             'ativo': 'Ativo?'
         }
 
@@ -49,7 +50,8 @@ class EntidadeForm(forms.ModelForm):
                 attrs={
                     'class': 'div-row-left',
                 }
-            )
+            ),
+            'validade': forms.DateInput(attrs={'type': 'date'})
         }
 
     select_entidade = forms.ChoiceField(
