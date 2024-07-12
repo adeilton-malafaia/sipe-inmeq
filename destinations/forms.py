@@ -20,6 +20,14 @@ except Exception:
 
 
 class EntidadeForm(forms.ModelForm):
+    cnpj = forms.IntegerField(
+        required=True,
+        widget=forms.TextInput(
+            attrs={"placeholder": "Digite apenas valores numéricos"}
+        ),
+        error_messages={"required": "Este campo não pode ficar vazio"},
+    )
+
     class Meta:
         model = models.Entidade
         fields = [  # type: ignore
@@ -62,7 +70,7 @@ class EntidadeForm(forms.ModelForm):
             "cnpj": forms.TextInput(
                 attrs={
                     "placeholder": "Digite apenas números",
-                }
+                },
             ),
             "ativo": forms.RadioSelect(
                 choices=[("s", "Sim"), ("n", "Não")],
