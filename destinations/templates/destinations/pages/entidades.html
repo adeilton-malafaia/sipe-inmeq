@@ -25,7 +25,7 @@
         </p>
         {% endif %}
 
-        {% if field.error_messagens is not None %}
+        {% if field.errors%}
         <p class="error">
           {{ field.errors }}
         </p>

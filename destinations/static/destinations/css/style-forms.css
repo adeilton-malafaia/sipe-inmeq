@@ -106,6 +106,7 @@ option, input, option, select, input[type='radio'], input[type='date']{
   color: blue;
 }
 
-.error{
+.errorlist{
   color: red;
+  list-style: none;
 }
