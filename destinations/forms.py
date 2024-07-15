@@ -1,4 +1,5 @@
 from django import forms
+from django.core.exceptions import ValidationError
 
 from . import models
 
@@ -85,3 +86,12 @@ class EntidadeForm(forms.ModelForm):
         choices=(options),
         label="Entidades cadastradas:",
     )
+
+    def clean_cnpj(self):
+        data = str(self.cleaned_data.get("cnpj"))
+
+        if len(data) <= 10:
+            raise ValidationError(
+                "O campo CNPJ deve ter 14 dígitos",
+                code="minlenght",
+            )

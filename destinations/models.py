@@ -7,16 +7,14 @@ class Entidade(models.Model):
         primary_key=True,
         blank=False,
         help_text="Este campo não pode ficar vazio",
-        error_messages={
-            'required': 'O CNPJ não pode ficar vazio',
-            'invalid': 'CNPJ só pode ter números'
-        }
+        # error_messages={
+        #     'required': 'O CNPJ não pode ficar vazio',
+        #     'invalid': 'CNPJ só pode ter números'
+        # }
     )  # type: ignore
     rs = models.CharField(
         max_length=50,
-        error_messages={
-            'required': 'A razão social não pode ficar vazia'
-        }
+        error_messages={"required": "A razão social não pode ficar vazia"},
     )  # type: ignore
     nf = models.CharField(max_length=50, blank=True)  # type: ignore
     contatos = models.CharField(max_length=50, blank=True)  # type: ignore
