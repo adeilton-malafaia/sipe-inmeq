@@ -62,7 +62,7 @@ class EntidadeForm(forms.ModelForm):
                 "required": "Este campo não pode ficar vazio",
                 "invalid": "Digite apenas números",
             },
-            "rs": {"required": "A razão social não pode ficar vazia"},
+            # "rs": {"required": "A razão social não pode ficar vazia"},
             "validade": {"required": "Defina uma data para a validade"},
             "contatos": {"required": "Defina pelo menos um contato"},
         }
@@ -87,11 +87,37 @@ class EntidadeForm(forms.ModelForm):
         label="Entidades cadastradas:",
     )
 
-    def clean_cnpj(self):
-        data = str(self.cleaned_data.get("cnpj"))
+    # Validações por campo
 
-        if len(data) <= 10:
+    def clean_cnpj(self):
+        data = self.cleaned_data.get("cnpj")
+
+        if len(str(data)) < 14:
             raise ValidationError(
-                "O campo CNPJ deve ter 14 dígitos",
-                code="minlenght",
+                [
+                    ValidationError(
+                        "Este campo não deve ser nulo",
+                        code="minlenght",
+                    ),
+                    ValidationError(
+                        "Este campo não deve ter menos de 14 dígitos",
+                        code="minlenght",
+                    ),
+                ]
+            )
+
+    def clean_rs(self):
+        data = self.cleaned_data.get("rs")
+
+        if len(data) < 10:
+            raise ValidationError(
+                [
+                    ValidationError(
+                        "Este campo não deve ser nulo", code="minlenght"
+                    ),  # ignore
+                    ValidationError(
+                        "Este campo deve ter pelo menos 10 caracteres",
+                        code="minlength",  # ignore
+                    ),
+                ]
             )

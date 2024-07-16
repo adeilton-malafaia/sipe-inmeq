@@ -5,23 +5,20 @@ from django.db import models
 class Entidade(models.Model):
     cnpj = models.IntegerField(
         primary_key=True,
-        blank=False,
+        blank=True,
         help_text="Este campo não pode ficar vazio",
         # error_messages={
         #     'required': 'O CNPJ não pode ficar vazio',
         #     'invalid': 'CNPJ só pode ter números'
         # }
     )  # type: ignore
-    rs = models.CharField(
-        max_length=50,
-        error_messages={"required": "A razão social não pode ficar vazia"},
-    )  # type: ignore
-    nf = models.CharField(max_length=50, blank=True)  # type: ignore
-    contatos = models.CharField(max_length=50, blank=True)  # type: ignore
-    email = models.CharField(max_length=50, blank=True)  # type: ignore
-    fones = models.CharField(max_length=35, blank=True)  # type: ignore
-    validade = models.DateField()  # type: ignore
-    ativo = models.CharField(max_length=1)  # type: ignore
+    rs = models.CharField(max_length=50, blank=True)
+    nf = models.CharField(max_length=50, blank=True)
+    contatos = models.CharField(max_length=50, blank=True)
+    email = models.CharField(max_length=50, blank=True)
+    fones = models.CharField(max_length=35, blank=True)
+    validade = models.DateField()
+    ativo = models.CharField(max_length=1)
 
     def __str__(self):
         return self.rs
