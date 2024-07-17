@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render
 
 from utils.destinations.factory import makeSaida
@@ -24,6 +25,7 @@ def cadentidades(request):  # View de rota para cadastro de entidades
         request.session["register_form_entidades"] = POST
         form = forms.EntidadeForm(POST)
     else:
+        messages.info(request, "Form sendo renderizado sem dados POST")
         form = forms.EntidadeForm()
 
     return render(

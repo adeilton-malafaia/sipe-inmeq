@@ -1,6 +1,15 @@
 {% extends "destinations/global_templates/destinations-global.html" %}
 
 {% block content %}
+
+{% if messages %}
+  {% for msg in messages %}
+    <div class="message {{ msg.tags }}">
+      {{ msg }}
+    </div>
+  {% endfor %}
+{% endif %}
+
 <form action="" method="POST" autocomplete="off">
   {% csrf_token %}
   <div class="div-form">
