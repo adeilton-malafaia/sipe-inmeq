@@ -24,8 +24,15 @@ def cadentidades(request):  # View de rota para cadastro de entidades
         POST = request.POST
         request.session["register_form_entidades"] = POST
         form = forms.EntidadeForm(POST)
+        if form.is_valid():
+            print(POST)
+            form.save(commit=False)
+            messages.success(request, "Entidade salva com sucesso")
+            del request.session["register_form_entidades"]
+            form = forms.EntidadeForm()
+        else:
+            messages.error(request, "CORRIJA OS ERROS DO FORMULÁRIO ")
     else:
-        messages.info(request, "Form sendo renderizado sem dados POST")
         form = forms.EntidadeForm()
 
     return render(
