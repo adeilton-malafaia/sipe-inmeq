@@ -2,20 +2,17 @@ from django.db import models
 
 
 class Entidade(models.Model):
-    cnpj = models.IntegerField(
-        primary_key=True,
-        blank=True,
-    )
-    razaosocial = models.CharField(max_length=50)
-    nf = models.CharField(max_length=50)
-    contatos = models.CharField(max_length=50)
+    cnpj = models.CharField(max_length=14, null=True)
+    razao = models.CharField(max_length=50)
+    nf = models.CharField(max_length=50, null=True, blank=True)
+    contatos = models.CharField(max_length=50, null=True, blank=True)
     email = models.CharField(max_length=50)
-    fones = models.CharField(max_length=35)
+    fones = models.CharField(max_length=35, default="Sem fones")
     validade = models.DateField()
-    ativo = models.CharField(max_length=1)
+    ativo = models.CharField(max_length=1, default="s")
 
     def __str__(self):
-        return self.razaosocial
+        return self.razao
 
 
 class Lancamento(models.Model):
@@ -32,7 +29,7 @@ class Lancamento(models.Model):
     )
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 class RegistroLancamentos(models.Model):

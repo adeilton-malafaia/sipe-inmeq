@@ -9,7 +9,7 @@ class EntidadeForm(forms.ModelForm):
         model = models.Entidade
         fields = [
             "cnpj",
-            "razaosocial",
+            "razao",
             "nf",
             "contatos",
             "email",
@@ -19,8 +19,9 @@ class EntidadeForm(forms.ModelForm):
         ]
 
         labels = {
-            "razaosocial": "Razão Social",
+            "razao": "Razão Social",
             "nf": "Nome de Fantasia",
+            "contatos": "Contatos",
             "email": "E-mail",
             "fones": "Telefones",
             "validade": "Validade do cadastro",
@@ -36,13 +37,35 @@ class EntidadeForm(forms.ModelForm):
             },
             "validade": {"required": "Defina uma data para a validade"},
             "contatos": {"required": "Defina pelo menos um contato"},
+            "razão": {"required": "Razão Social não pode ser nulo"},
         }
 
         widgets = {
             "cnpj": forms.TextInput(
                 attrs={
                     "placeholder": "Digite apenas números",
-                },
+                    "maxlength": 14,
+                },  # ignore
+            ),
+            "nf": forms.TextInput(
+                attrs={
+                    "required": False,
+                }
+            ),
+            "contatos": forms.TextInput(
+                attrs={
+                    "required": False,
+                }
+            ),
+            "email": forms.TextInput(
+                attrs={
+                    "required": False,
+                }
+            ),
+            "fones": forms.TextInput(
+                attrs={
+                    "required": False,
+                }
             ),
             "ativo": forms.RadioSelect(
                 choices=[("s", "Sim"), ("n", "Não")],
@@ -56,34 +79,25 @@ class EntidadeForm(forms.ModelForm):
     # Validações por campo
 
     def clean_cnpj(self):
-        data = self.cleaned_data.get("cnpj")
+        data = self.cleaned_data["cnpj"]
 
-        if len(str(data)) < 14:
+        if len(data) != 14:
             raise ValidationError(
                 [
                     ValidationError(
-                        "Este campo não deve ser nulo",
-                        code="minlenght",
-                    ),
+                        "O CNPJ não pode ser nulo", code="invalid"
+                    ),  # ignore
                     ValidationError(
-                        "Este campo não deve ter menos de 14 dígitos",
-                        code="minlenght",
-                    ),
+                        "O CNPJ deVE ter 14 dígitos", code="invalid"
+                    ),  # ignore
                 ]
             )
 
-    def clean_razaosocial(self):
-        data = self.cleaned_data.get("razaosocial")
+        cnpj_test = models.Entidade.objects.filter(cnpj=data)
 
-        if len(data) < 10:
+        if len(cnpj_test) > 0:
             raise ValidationError(
-                [
-                    ValidationError("Este campo não deve ser nulo", code="invalid"),
-                    ValidationError(
-                        "Este campo deve ter pelo menos 10 caracteres",
-                        code="minlength",
-                    ),
-                ]
+                "Já existe uma Entidade com este CNPJ",
             )
-        else:
-            self.cleaned_data["razaosocial"] = data
+
+        return data
