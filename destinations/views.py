@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from utils.destinations.factory import makeSaida
 
-from . import forms, models
+from . import forms
 
 
 def home(request):
@@ -11,15 +11,6 @@ def home(request):
 
 
 def entidades(request):  # View de rota para cadastro de entidades
-    entidades = models.Entidade.objects.all().order_by("rs").filter(ativo="s")
-    return render(
-        request,
-        "destinations/pages/cadastro-entidade.html",
-        context={"entidades": entidades},
-    )
-
-
-def cadentidades(request):  # View de rota para cadastro de entidades
     if request.POST:
         POST = request.POST
         request.session["register_form_entidades"] = POST
@@ -27,7 +18,7 @@ def cadentidades(request):  # View de rota para cadastro de entidades
         if form.is_valid():
             print(POST)
             form.save(commit=True)
-            messages.success(request, "Entidade salva com sucesso")
+            messages.success(request, "ENTIDADE SALVA COM SUCESSO")
             del request.session["register_form_entidades"]
             form = forms.EntidadeForm()
         else:

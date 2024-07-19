@@ -28,7 +28,7 @@ class EntidadeForm(forms.ModelForm):
             "ativo": "Ativo?",
         }
 
-        help_texts = {}
+        # help_texts = {}
 
         error_messages = {
             "cnpj": {
