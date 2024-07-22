@@ -1,0 +1,88 @@
+{% extends "destinations/global_templates/destinations-global.html" %}
+
+{% block content %}
+
+{% if messages %}
+{% for msg in messages %}
+  <div style="width: 63rem; margin: 2rem auto" class="message {{ msg.tags }}">
+    {{ msg }}
+  </div>
+{% endfor %}
+{% endif %}
+
+<div class="div-form">
+  <form action="" method="POST" autocomplete="off">
+    {% csrf_token %}
+    <div class="div-form-tit">
+    ATUALIZAÇÃO DE ENTIDADE
+  </div>
+  <div class="div-form-content">
+    <div>
+      <label for="{{ form.cnpj.id_for_label }}">{{ form.cnpj.label }}</label>
+      {{ form.cnpj }}&nbsp;
+      <button type="button" id="btn-load">Carregar Dados</button>
+    </div>
+  </div>
+  <div class="div-form-content">
+
+    {% for field in form %}
+    {% if field.label != 'Ativo?' and field.label != 'Cnpj' and field.label != 'Option' %}
+    <div>
+      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+      {{ field }}
+      {% if field.help_text %}
+      <p class="help_text">
+        {{ field.help_text }}
+      </p>
+      {% endif %}
+
+      {% if field.errors%}
+      <p class="error">
+        {{ field.errors }}
+      </p>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <div>
+      <div class="uppercase" style="height: 2rem;">
+        {{ form.ativo.label }}
+      </div>
+      <div class="div-row-left">
+        {% for opt in form.ativo %}
+        <div class="div-row-left" style="align-items: end; width: 6rem;">
+          <label for="{{ opt.id_for_label }}">{{ opt.choice_label }}</label>
+          {{ opt.tag }}
+        </div>
+        {% endfor %}
+      </div>
+      <span class="help_text">
+        {{ form.ativo.help_text }}
+      </span>
+    </div>
+  </div>
+  <div class="div-form-footer">
+    <button type="button" id="btn-save">Salvar</button>&nbsp;&nbsp;
+    <button type="reset">Cancelar</button>
+    {{ form.option }}
+  </div>
+</div>
+</form>
+<script>
+$(document).ready(function(){
+  
+  $("#btn-load").click(function(){
+    $("#option").val("load");
+    $("form").submit();
+  })
+
+  $("#btn-save").click(function(){
+    $("#option").val("save");
+    $("form").submit();
+  })
+
+});
+</script>
+
+{% endblock content %}

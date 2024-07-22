@@ -74,7 +74,8 @@
   display: grid;
   grid-template-columns: 10rem 7.5rem 9.7rem 29rem 12rem 6.3rem 10rem;
   width: 87rem;
-  max-height: 50rem;
+  /* max-height: 35rem; */
+  height: fit-content;
 }
 
 .grid-saidas > div{

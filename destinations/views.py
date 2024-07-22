@@ -3,23 +3,23 @@ from django.shortcuts import render
 
 from utils.destinations.factory import makeSaida
 
-from . import forms
+from . import forms, models
 
 
 def home(request):
     return render(request, "destinations/pages/index.html")
 
 
-def entidades(request):  # View de rota para cadastro de entidades
+def entidades_insert(request):  # View de rota para cadastro de entidades
     if request.POST:
         POST = request.POST
-        request.session["register_form_entidades"] = POST
+        request.session["insert_form_entidades"] = POST
         form = forms.EntidadeForm(POST)
-        if form.is_valid():
-            print(POST)
+        ent = models.Entidade.objects.filter(cnpj=POST['cnpj'])
+        if form.is_valid() and not ent:
             form.save(commit=True)
             messages.success(request, "ENTIDADE SALVA COM SUCESSO")
-            del request.session["register_form_entidades"]
+            del request.session["insert_form_entidades"]
             form = forms.EntidadeForm()
         else:
             messages.error(request, "CORRIJA OS ERROS DO FORMULÁRIO ")
@@ -28,7 +28,41 @@ def entidades(request):  # View de rota para cadastro de entidades
 
     return render(
         request,
-        "destinations/pages/entidades.html",
+        "destinations/pages/entidades-insert.html",
+        context={
+            "form": form,
+        },
+    )
+
+
+def entidades_update(request):
+    form = forms.EntidadeUpdateForm()
+    if request.POST:
+        POST = request.POST
+        form = forms.EntidadeUpdateForm(POST)
+        request.session["update_form_entidades"] = POST
+
+        print(POST)
+
+        match POST['option']:
+            case 'load':
+                cnpj_value = POST['cnpj']
+                ent = models.Entidade.objects.filter(cnpj=cnpj_value)
+                form.instance = ent
+            case 'save':
+                if form.is_valid():
+                    form.save(commit=True)
+                    messages.success(request, "ENTIDADE SALVA COM SUCESSO")
+                    del request.session["register_form_entidades"]
+                    form = forms.EntidadeForm()
+                else:
+                    messages.error(request, "CORRIJA OS ERROS DO FORMULÁRIO ")
+    else:
+        form = forms.EntidadeUpdateForm()
+
+    return render(
+        request,
+        "destinations/pages/entidades-update.html",
         context={
             "form": form,
         },
@@ -39,7 +73,7 @@ def saidas(request):  # View de rota para registro de destino de produtos
     return render(
         request,
         "destinations/pages/registro-saidas.html",
-        context={"saidas": [makeSaida() for _ in range(30)]},
+        context={"saidas": [makeSaida() for _ in range(19)]},
     )
 
 

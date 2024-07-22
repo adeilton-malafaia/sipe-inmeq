@@ -5,6 +5,8 @@ from . import models
 
 
 class EntidadeForm(forms.ModelForm):
+    option = forms.CharField(widget=forms.HiddenInput())
+
     class Meta:
         model = models.Entidade
         fields = [
@@ -19,6 +21,7 @@ class EntidadeForm(forms.ModelForm):
         ]
 
         labels = {
+            'cnpj': 'cnpj',
             "razao": "Razão Social",
             "nf": "Nome de Fantasia",
             "contatos": "Contatos",
@@ -45,26 +48,11 @@ class EntidadeForm(forms.ModelForm):
                 attrs={
                     "placeholder": "Digite apenas números",
                     "maxlength": 14,
-                },  # ignore
+                },
             ),
-            "nf": forms.TextInput(
+            "razao": forms.TextInput(
                 attrs={
-                    "required": False,
-                }
-            ),
-            "contatos": forms.TextInput(
-                attrs={
-                    "required": False,
-                }
-            ),
-            "email": forms.TextInput(
-                attrs={
-                    "required": False,
-                }
-            ),
-            "fones": forms.TextInput(
-                attrs={
-                    "required": False,
+                    'placeholder': 'Digite algo com pelo menos 10 caracteres aqui'
                 }
             ),
             "ativo": forms.RadioSelect(
@@ -101,3 +89,11 @@ class EntidadeForm(forms.ModelForm):
             )
 
         return data
+
+
+class EntidadeUpdateForm(EntidadeForm):
+    ents = models.Entidade.objects.filter(ativo='s')
+    opt = [('0', 'SELECIONE UMA ENTIDADE PARA ATUALIZAR')]
+    for item in ents:
+        opt.append((item.cnpj, item.razao))
+    cnpj = forms.CharField(widget=forms.Select(choices=opt))
