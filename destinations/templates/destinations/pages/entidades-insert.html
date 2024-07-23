@@ -19,7 +19,7 @@
   <div class="div-form-content">
 
     {% for field in form %}
-    {% if field.label != 'Ativo?' %}
+    {% if field.label != 'Ativo?' and field.label != 'Option' %}
     <div>
       <label for="{{ field.id_for_label }}">{{ field.label }}</label>
       {{ field }}

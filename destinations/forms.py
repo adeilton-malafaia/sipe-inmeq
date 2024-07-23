@@ -1,3 +1,4 @@
+import math
 from django import forms
 from django.core.exceptions import ValidationError
 
@@ -68,32 +69,49 @@ class EntidadeForm(forms.ModelForm):
 
     def clean_cnpj(self):
         data = self.cleaned_data["cnpj"]
+        nao_numerico = None
+        try:
+            int(data)
+            nao_numerico = False
+        except Exception:
+            nao_numerico = True
 
-        if len(data) != 14:
+        if nao_numerico:
+            raise ValidationError(
+                "Digite apenas números",
+                code='invalid'
+            )
+
+        if len(data) < 14 or nao_numerico:
             raise ValidationError(
                 [
                     ValidationError(
                         "O CNPJ não pode ser nulo", code="invalid"
                     ),  # ignore
                     ValidationError(
-                        "O CNPJ deVE ter 14 dígitos", code="invalid"
+                        "O CNPJ deve ter 14 dígitos", code="invalid"
                     ),  # ignore
+                    ValidationError(
+                        'Digite apenas números',
+                        code='invalid'
+                    )
                 ]
             )
-
-        cnpj_test = models.Entidade.objects.filter(cnpj=data)
-
-        if len(cnpj_test) > 0:
-            raise ValidationError(
-                "Já existe uma Entidade com este CNPJ",
-            )
-
+        
         return data
+    
+    def clean_razao(self):
+        data = self.cleaned_data['razao']
 
+        if len(data) < 10:
+            raise ValidationError(
+                'Digite algo com pelo menos 10 caracteres',
+                code='invalid'
+            )
 
 class EntidadeUpdateForm(EntidadeForm):
     ents = models.Entidade.objects.filter(ativo='s')
     opt = [('0', 'SELECIONE UMA ENTIDADE PARA ATUALIZAR')]
     for item in ents:
         opt.append((item.cnpj, item.razao))
-    cnpj = forms.CharField(widget=forms.Select(choices=opt))
+    entidade = forms.CharField(label='Entidade', widget=forms.Select(choices=opt))

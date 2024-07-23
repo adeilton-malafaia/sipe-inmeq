@@ -39,16 +39,13 @@ def entidades_update(request):
     form = forms.EntidadeUpdateForm()
     if request.POST:
         POST = request.POST
-        form = forms.EntidadeUpdateForm(POST)
         request.session["update_form_entidades"] = POST
-
-        print(POST)
 
         match POST['option']:
             case 'load':
                 cnpj_value = POST['cnpj']
                 ent = models.Entidade.objects.filter(cnpj=cnpj_value)
-                form.instance = ent
+                form = forms.EntidadeUpdateForm(request.POST)
             case 'save':
                 if form.is_valid():
                     form.save(commit=True)
@@ -57,8 +54,6 @@ def entidades_update(request):
                     form = forms.EntidadeForm()
                 else:
                     messages.error(request, "CORRIJA OS ERROS DO FORMULÁRIO ")
-    else:
-        form = forms.EntidadeUpdateForm()
 
     return render(
         request,
