@@ -1,7 +1,7 @@
-from django.test import TestCase
-from parameterized import parameterized
+# from django.test import TestCase
+# from parameterized import parameterized
 
-from destinations.forms import EntidadeForm
+# from destinations.forms import EntidadeForm
 
 
 # class DestinationsEntidadeFormUnitTest(TestCase):
