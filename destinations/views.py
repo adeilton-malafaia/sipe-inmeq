@@ -35,7 +35,7 @@ def entidades_insert(request):  # View de rota para cadastro de entidades
     )
 
 
-def entidades_update(request):
+def entidades_update(request):  # View da rota para update de entidades
     form = forms.EntidadeUpdateForm()
     if request.POST:
         POST = request.POST
@@ -43,8 +43,7 @@ def entidades_update(request):
 
         match POST['option']:
             case 'load':
-                cnpj_value = POST['cnpj']
-                ent = models.Entidade.objects.filter(cnpj=cnpj_value)
+                # cnpj_value = POST['cnpj']
                 form = forms.EntidadeUpdateForm(request.POST)
             case 'save':
                 if form.is_valid():
@@ -64,7 +63,7 @@ def entidades_update(request):
     )
 
 
-def saidas(request):  # View de rota para registro de destino de produtos
+def saidas(request):  # View de rota para registro de saídas de produtos
     return render(
         request,
         "destinations/pages/registro-saidas.html",

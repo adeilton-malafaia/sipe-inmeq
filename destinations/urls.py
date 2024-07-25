@@ -10,6 +10,6 @@ urlpatterns = [
     path('entidades/atualizar/', views.entidades_update,
          name='entidade-update'),  # ignore
     path('saidas/', views.saidas, name='saidas'),
-    path('entidades/registrodestino/', views.registrodestino, name='entidade-registrodestino'),  # noqa: E501
-    path('planilha/', views.planilha, name='entidades-planilha'),
+    path('entidades/registrodestino/', views.registrodestino, name='registrodestino'),  # noqa: E501
+    path('planilha/', views.planilha, name='planilha'),
 ]
