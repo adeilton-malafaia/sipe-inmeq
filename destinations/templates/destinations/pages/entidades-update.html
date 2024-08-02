@@ -26,7 +26,7 @@
   <div class="div-form-content">
 
     {% for field in form %}
-    {% if field.label != 'Ativo?' and field.label != 'Cnpj' and field.label != 'Option' %}
+    {% if field.label != 'Ativo?' and field.label != 'Cnpj' and field.label != 'Option' and field.label != 'Entidade' %}
     <div>
       <label for="{{ field.id_for_label }}">{{ field.label }}</label>
       {{ field }}
@@ -73,12 +73,12 @@
 $(document).ready(function(){
   
   $("#btn-load").click(function(){
-    $("#option").val("load");
+    $("#id_option").val("load");
     $("form").submit();
   })
 
   $("#btn-save").click(function(){
-    $("#option").val("save");
+    $("#id_option").val("save");
     $("form").submit();
   })
 

@@ -8,7 +8,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('entidades/cadastro/', views.entidades_insert, name='entidade-insert'),  # noqa: E501
     path('entidades/atualizar/', views.entidades_update,
-         name='entidade-update'),  # ignore
+         name='entidade-update'),  # noqa: E501
     path('saidas/', views.saidas, name='saidas'),
     path('entidades/registrodestino/', views.registrodestino, name='registrodestino'),  # noqa: E501
     path('planilha/', views.planilha, name='planilha'),

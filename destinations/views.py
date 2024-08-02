@@ -1,9 +1,10 @@
 from django.contrib import messages
 from django.shortcuts import render
 
+from destinations.models import Entidade
 from utils.destinations.factory import makeSaida
 
-from . import forms, models
+from . import forms
 
 
 def home(request):
@@ -15,7 +16,7 @@ def entidades_insert(request):  # View de rota para cadastro de entidades
         POST = request.POST
         request.session["insert_form_entidades"] = POST
         form = forms.EntidadeForm(POST)
-        ent = models.Entidade.objects.filter(cnpj=POST['cnpj'])
+        ent = Entidade.objects.filter(cnpj=POST['cnpj'])
         if form.is_valid() and not ent:
             form.save(commit=True)
             messages.success(request, "ENTIDADE SALVA COM SUCESSO")
@@ -40,11 +41,13 @@ def entidades_update(request):  # View da rota para update de entidades
     if request.POST:
         POST = request.POST
         request.session["update_form_entidades"] = POST
+        opt = dict(POST)['option'][0]
+        id_value = dict(POST)['entidade'][0]
 
-        match POST['option']:
+        match opt:
             case 'load':
-                # cnpj_value = POST['cnpj']
-                form = forms.EntidadeUpdateForm(request.POST)
+                entidade = Entidade.objects.get(pk=id_value)
+                form = forms.EntidadeUpdateForm(POST, instance=entidade)
             case 'save':
                 if form.is_valid():
                     form.save(commit=True)

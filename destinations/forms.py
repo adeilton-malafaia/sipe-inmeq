@@ -1,15 +1,14 @@
-import math
 from django import forms
 from django.core.exceptions import ValidationError
 
-from . import models
+from destinations.models import Entidade
 
 
 class EntidadeForm(forms.ModelForm):
     option = forms.CharField(widget=forms.HiddenInput())
 
     class Meta:
-        model = models.Entidade
+        model = Entidade
         fields = [
             "cnpj",
             "razao",
@@ -53,7 +52,7 @@ class EntidadeForm(forms.ModelForm):
             ),
             "razao": forms.TextInput(
                 attrs={
-                    'placeholder': 'Digite algo com pelo menos 10 caracteres aqui'
+                    'placeholder': 'Digite algo com pelo menos 10 caracteres aqui'  # noqa: E501
                 }
             ),
             "ativo": forms.RadioSelect(
@@ -97,9 +96,9 @@ class EntidadeForm(forms.ModelForm):
                     )
                 ]
             )
-        
+
         return data
-    
+
     def clean_razao(self):
         data = self.cleaned_data['razao']
 
@@ -109,9 +108,10 @@ class EntidadeForm(forms.ModelForm):
                 code='invalid'
             )
 
+
 class EntidadeUpdateForm(EntidadeForm):
-    ents = models.Entidade.objects.filter(ativo='s')
+    ents = Entidade.objects.filter(ativo='s')
     opt = [('0', 'SELECIONE UMA ENTIDADE PARA ATUALIZAR')]
     for item in ents:
-        opt.append((item.cnpj, item.razao))
-    entidade = forms.CharField(label='Entidade', widget=forms.Select(choices=opt))
+        opt.append((item.id, item.razao))
+    entidade = forms.CharField(label='Entidade', widget=forms.Select(choices=opt))  # noqa: E501
