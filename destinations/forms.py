@@ -6,6 +6,10 @@ from destinations.models import Entidade
 
 class EntidadeForm(forms.ModelForm):
     option = forms.CharField(widget=forms.HiddenInput())
+    selectEntidade = forms.CharField(
+        label='Entidade',
+        widget=forms.Select()
+    )
 
     class Meta:
         model = Entidade
@@ -108,10 +112,4 @@ class EntidadeForm(forms.ModelForm):
                 code='invalid'
             )
 
-
-class EntidadeUpdateForm(EntidadeForm):
-    ents = Entidade.objects.filter(ativo='s')
-    opt = [('0', 'SELECIONE UMA ENTIDADE PARA ATUALIZAR')]
-    for item in ents:
-        opt.append((item.id, item.razao))
-    entidade = forms.CharField(label='Entidade', widget=forms.Select(choices=opt))  # noqa: E501
+        return data

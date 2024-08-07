@@ -1,10 +1,9 @@
 from django.contrib import messages
 from django.shortcuts import render
 
-from destinations.models import Entidade
 from utils.destinations.factory import makeSaida
 
-from . import forms
+from . import forms, models
 
 
 def home(request):
@@ -16,7 +15,7 @@ def entidades_insert(request):  # View de rota para cadastro de entidades
         POST = request.POST
         request.session["insert_form_entidades"] = POST
         form = forms.EntidadeForm(POST)
-        ent = Entidade.objects.filter(cnpj=POST['cnpj'])
+        ent = models.Entidade.objects.filter(cnpj=dict(POST)['cnpj'][0])
         if form.is_valid() and not ent:
             form.save(commit=True)
             messages.success(request, "ENTIDADE SALVA COM SUCESSO")
@@ -37,22 +36,26 @@ def entidades_insert(request):  # View de rota para cadastro de entidades
 
 
 def entidades_update(request):  # View da rota para update de entidades
-    form = forms.EntidadeUpdateForm()
+    form = forms.EntidadeForm()
+    options = models.Entidade.objects.filter(ativo='s')
+    id_selected = None
+
     if request.POST:
         POST = request.POST
         request.session["update_form_entidades"] = POST
-        opt = dict(POST)['option'][0]
-        id_value = dict(POST)['entidade'][0]
+        option_match = dict(POST)['option'][0]
+        id_selected = dict(POST)['selectEntidade'][0]
 
-        match opt:
+        match option_match:
             case 'load':
-                entidade = Entidade.objects.get(pk=id_value)
-                form = forms.EntidadeUpdateForm(POST, instance=entidade)
+                entidade = models.Entidade.objects.get(pk=id_selected)
+                form = forms.EntidadeForm(instance=entidade)
+
             case 'save':
                 if form.is_valid():
                     form.save(commit=True)
                     messages.success(request, "ENTIDADE SALVA COM SUCESSO")
-                    del request.session["register_form_entidades"]
+                    del request.session["update_form_entidades"]
                     form = forms.EntidadeForm()
                 else:
                     messages.error(request, "CORRIJA OS ERROS DO FORMULÁRIO ")
@@ -62,6 +65,8 @@ def entidades_update(request):  # View da rota para update de entidades
         "destinations/pages/entidades-update.html",
         context={
             "form": form,
+            'options': options,
+            'id_selected': id_selected
         },
     )
 

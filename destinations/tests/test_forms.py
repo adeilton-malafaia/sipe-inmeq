@@ -1,12 +1,9 @@
-from unittest import skip
-
 from django.test import TestCase
-from parameterized import parameterized
+from parameterized import parameterized  # type: ignore
 
 from destinations.forms import EntidadeForm
 
 
-@skip('Pulando testes de forms por causa do erro de BD')
 class DestinationsEntidadeFormUnitTest(TestCase):
     @parameterized.expand([
         ('cnpj', 'Digite apenas números'),
