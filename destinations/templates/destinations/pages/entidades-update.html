@@ -18,8 +18,13 @@
   </div>
   <div class="div-form-content">
     <div>
-      <label for="{{ form.entidade.id_for_label }}">{{ form.entidade.label }}</label>
-      {{ form.entidade }}&nbsp;
+      <label for="{{ form.selectEntidade.id_for_label }}">{{ form.selectEntidade.label }}</label>
+      <select name="{{ form.selectEntidade.label }}" id="{{ form.selectEntidade.id_for_label }}">
+        <option value="0">SELECIONE UMA ENTIDADE PARA ATUALIZAR</option>
+        {% for option in options %}
+        <option value="{{ option.id }}">{{ option.razao }}</option>
+        {% endfor %}
+      </select>
       <button type="button" id="btn-load">Carregar Dados</button>
     </div>
   </div>
