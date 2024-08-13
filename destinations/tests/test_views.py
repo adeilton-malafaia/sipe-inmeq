@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import resolve, reverse
 
 from destinations import views
+from destinations.models import Entidade
 
 
 class DestinationsViewsTests(TestCase):
@@ -51,6 +52,22 @@ class DestinationsViewsTests(TestCase):
         url = reverse('destinations:entidade-update')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
+
+    def test_destinations_entidade_update_if_loads_select_entidade(self):
+        url = reverse('destinations:entidade-update')
+        entidade = Entidade.objects.create(  # noqa: F841
+                    cnpj='12345678901234',
+                    razao='Entidade Teste',
+                    nf='Entidade Teste',
+                    contatos='José',
+                    email='entidade@entidade.com',
+                    fones='82 3214 4123',
+                    validade='2025-06-30',
+                    ativo='s',
+        )
+        response = self.client.get(url)
+        template_content = response.content.decode('utf-8')
+        self.assertIn('<option value="1">Entidade Teste</option>', template_content)  # noqa: E501
 
     def test_destinations_template_entidade_update_is_correct(self):
         url = reverse('destinations:entidade-update')
