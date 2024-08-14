@@ -1,0 +1,20 @@
+{% extends "destinations/global_templates/destinations-global.html" %}
+{% block content %}
+
+<form action="" method='POST' enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="div-form">
+    <div class="div-form-tit">
+      CARREGAR CRONOGRAMA DE PERÍCIAS
+    </div>
+    <div class="div-form-content">
+      {{ form.crono }}
+      {{ form.option }}
+    </div>
+    <div class="div-form-footer">
+      <button type="submit">Carregar PDF</button>
+    </div>
+  </div>
+</form>
+  
+{% endblock content %}}

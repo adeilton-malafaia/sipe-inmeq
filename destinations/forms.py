@@ -113,3 +113,12 @@ class EntidadeForm(forms.ModelForm):
             )
 
         return data
+
+
+class CronogramaForm(forms.Form):
+    crono = forms.FileField(
+        widget=forms.FileInput(attrs={'accept': '.pdf'})
+    )
+    option = forms.CharField(
+        widget=forms.HiddenInput()
+    )
