@@ -6,9 +6,13 @@ import pandas as pd
 
 
 class PDFhandler:
-    def __init__(self, filename):
+    def __init__(self, file, filename='crono.pdf'):
         self.filename = filename
-        # self.url = "/home/" + str(os.environ.get('USERNAME')) + "/Documentos/"
+        self.url = os.getcwd() + "/"
+        with open(self.url + self.filename, "wb+") as crono:
+            for chunk in file.chunks():
+                crono.write(chunk)
+
         self.data = ''
 
     def readFile(self):
@@ -16,11 +20,7 @@ class PDFhandler:
         # O objeto é uma espeçie de array de tabelas (se houver mais de uma
         # página)
         # tbl = cm.read_pdf(self.url + self.filename + ".pdf", 'all')
-        
-        ##########################################################
-        #################### CONSERTAR DAQUI #####################
-        ##########################################################
-        # O aqumento deve ser o endereço do arquivo em disco e não em memória
+
         tbl = cm.read_pdf(self.filename, 'all')
 
         # Criando listas vazias, uma para cada coluna da planilha que será
@@ -71,6 +71,15 @@ class PDFhandler:
             'qn': qn,
             'qt': qt
         }
+
+    def getURL(self):
+        return self.url
+
+    def getSizeData(self):
+        return len(self.data['data'])
+
+    def getData(self):
+        return self.data
 
     def exportData(self):
         plan = pd.DataFrame(self.data)

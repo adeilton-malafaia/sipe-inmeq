@@ -1,9 +1,18 @@
 {% extends "destinations/global_templates/destinations-global.html" %}
+
 {% block content %}
 
-<form action="" method='POST' enctype="multipart/form-data">
+{% if messages %}
+{% for msg in messages %}
+<div class="message {{ msg.tags }}" style='width: 63rem; margin: 2rem auto'>
+  {{msg}}
+</div>
+{% endfor %}
+{% endif %}
+
+<div class="div-form">
+  <form action="" method='POST' enctype="multipart/form-data">
   {% csrf_token %}
-  <div class="div-form">
     <div class="div-form-tit">
       CARREGAR CRONOGRAMA DE PERÍCIAS
     </div>
@@ -14,7 +23,7 @@
     <div class="div-form-footer">
       <button type="submit">Carregar PDF</button>
     </div>
-  </div>
-</form>
+  </form>
+</div>
   
 {% endblock content %}}
