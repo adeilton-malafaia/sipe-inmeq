@@ -72,8 +72,8 @@
 /*********** Estilos para o contêiner de saídas diárias ***********/
 .grid-saidas{
   display: grid;
-  grid-template-columns: 10rem 7.5rem 9.7rem 29rem 12rem 6.3rem 10rem;
-  width: 87rem;
+  grid-template-columns: 5% 5% 37.5% 37.5% 5% 5% 5%;
+  width: 45rem;
   /* max-height: 35rem; */
   height: fit-content;
 }

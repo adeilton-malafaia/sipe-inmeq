@@ -1,8 +1,8 @@
 import datetime
 import os
 
-import camelot.io as cm
-import pandas as pd
+import camelot.io as cm  # type: ignore
+import pandas as pd  # type: ignore
 
 
 class PDFhandler:
@@ -72,11 +72,56 @@ class PDFhandler:
             'qt': qt
         }
 
+    def readFile2(self):
+        # Extraindo todas as tabelas existentes do PDF para um objeto Camelot.
+        # O objeto é uma espeçie de array de tabelas (se houver mais de uma
+        # página)
+        # tbl = cm.read_pdf(self.url + self.filename + ".pdf", 'all')
+
+        tbl = cm.read_pdf(self.filename, 'all')
+
+        # Criando listas vazias, uma para cada coluna da planilha que será
+        # gerada...
+        data = list()
+        dt = dict()
+
+        # Navegando em cada tabela para coletar os dados das colunas
+        for i in range(0, len(tbl)):
+            # Tabela (dataset) atual
+            tab = tbl[i].df
+
+            # Navegando em cada linha da tabela atual para adicionar dados nas
+            # listas
+            for k in (range(1, len(tab[i]))):
+                try:
+                    date = str(tab[0][k])
+                    d = int(date[0:2])
+                    m = int(date[3:5])
+                    y = int(date[6:10])
+                    dat = d + "/" + m + "/" + y  # datetime.datetime(y, m, d)
+                    dt['data'] = dat
+                except Exception:
+                    dt['data'] = ''
+
+                dt['tc'] = int(tab[5][k])
+                dt['tipo_saida'] = ''
+                dt['produto'] = tab[3][k]
+                dt['marca'] = tab[6][k]
+                dt['qn'] = tab[7][k]
+                try:
+                    dt['qt'] = int(tab[8][k])
+                except Exception:
+                    dt['qt'] = 5
+                data.append(dt)
+
+        # Criando um dicionário com as listas...
+        self.data = data
+
     def getURL(self):
         return self.url
 
     def getSizeData(self):
-        return len(self.data['data'])
+        return len(self.data)
 
     def getData(self):
         return self.data

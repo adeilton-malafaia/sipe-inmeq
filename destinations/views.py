@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 
 from utils.destinations import pdfhandler
 from utils.destinations.factory import makeSaida
@@ -74,7 +74,8 @@ def entidades_update(request):  # View da rota para update de entidades
 
 def loadCronograma(request):
     form = forms.CronogramaForm()
-
+    data = None
+    print_data = False
     if request.POST:
         POST = request.POST
         request.session['load_cronograma_pdf'] = POST
@@ -83,20 +84,19 @@ def loadCronograma(request):
         file = FILES['crono']
 
         pd = pdfhandler.PDFhandler(file)
-        pd.readFile()
-        pd.exportData()
-        print(pd.getSizeData())
+        pd.readFile2()
+        # pd.exportData()
         if pd.getSizeData() > 0:
             messages.success(request, 'PDF PROCESSADO COM SUCESSO')
-            # data = pd.getData()
-            return redirect('destinations:home')
+            data = pd.getData()
+            print_data = True
         else:
             messages.error(request, 'PDF NÃO CONTÉM DADOS OU É INVÁLIDO')
 
     return render(
         request,
         'destinations/pages/load_cronograma.html',
-        context={'form': form}
+        context={'form': form, 'data': data, 'print_data': print_data}
     )
 
 

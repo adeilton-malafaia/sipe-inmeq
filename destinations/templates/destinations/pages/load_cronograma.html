@@ -19,10 +19,36 @@
     <div class="div-form-content">
       {{ form.crono }}
       {{ form.option }}
-    </div>
-    <div class="div-form-footer">
+      &nbsp;&nbsp;
       <button type="submit">Carregar PDF</button>
     </div>
+    {% if print_data %}
+    <div class="div-form-tit">
+      LANÇAMENTOS
+    </div>
+    <div class="div-form-content">
+
+
+
+      <div class="grid-saidas">
+        <div>Data</div>
+        <div>TC</div>
+        <div>Produto</div>
+        <div>Marca</div>
+        <div>Cont. Nom.</div>
+        <div>Quant.</div>
+        <div>Tipo saída</div>
+      </div>
+
+
+      
+    </div>
+    <div class="div-form-cont">
+      {% for dt in data %}
+      
+      {% endfor %}
+    </div>
+    {% endif %}
   </form>
 </div>
   
