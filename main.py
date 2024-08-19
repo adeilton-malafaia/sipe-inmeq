@@ -1,9 +1,5 @@
-import os
-
-from utils.destinations.pdfhandler import PDFhandler
+from utils.destinations.PDFhandler import PDFhandler
 
 pd = PDFhandler()
-os.remove(pd.getURL() + 'crono.pdf')
-
-# pd.readFile()
-# pd.exportData()
+pd.readFile()
+pd.exportData()

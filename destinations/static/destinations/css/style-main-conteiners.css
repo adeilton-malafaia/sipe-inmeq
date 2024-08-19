@@ -53,6 +53,7 @@
 
 .div-row-left{
   justify-content: left;
+  flex-direction: row;
 }
 
 .div-col-center{
@@ -72,19 +73,18 @@
 /*********** Estilos para o contêiner de saídas diárias ***********/
 .grid-saidas{
   display: grid;
-  grid-template-columns: 5% 5% 37.5% 37.5% 5% 5% 5%;
+  grid-template-columns: 10% 10% 27.5% 25.5% 10% 7% 10%;
   width: 45rem;
-  /* max-height: 35rem; */
   height: fit-content;
 }
 
 .grid-saidas > div{
   display: flex;
   justify-content: left;
-  padding: 0.2rem 0 0.2rem 0;
-  margin-right: 1rem;
+  padding: 0.2rem 0.2rem;
   box-sizing: border-box;
   transition: all 0.4s ease-in-out;
+  height: fit-content;
 }
 
 .grid-saidas > div > input[type='text']{

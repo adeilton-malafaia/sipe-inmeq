@@ -16,39 +16,49 @@
     <div class="div-form-tit">
       CARREGAR CRONOGRAMA DE PERÍCIAS
     </div>
-    <div class="div-form-content">
+    <div class="div-form-content" style="display: flex; flex-direction: row">
       {{ form.crono }}
       {{ form.option }}
       &nbsp;&nbsp;
-      <button type="submit">Carregar PDF</button>
+      <button type="submit">PDF</button>
     </div>
     {% if print_data %}
     <div class="div-form-tit">
+      LANÇAMENTO SELECIONADO
+    </div>
+    <div class="dv-form-content">
+      Campos para edição de lançamentos aqui
+    </div>
+    <div class="div-form-tit">
       LANÇAMENTOS
     </div>
-    <div class="div-form-content">
-
-
-
-      <div class="grid-saidas">
-        <div>Data</div>
+    <div class="div-form-content" style="background-color: #e6e6e6; padding: 0.5rem 0.8rem">
+      <div class="grid-saidas" >
+        <div>DATA</div>
         <div>TC</div>
-        <div>Produto</div>
-        <div>Marca</div>
-        <div>Cont. Nom.</div>
-        <div>Quant.</div>
-        <div>Tipo saída</div>
+        <div>PRODUTO</div>
+        <div>MARCA</div>
+        <div>CONT. NOM.</div>
+        <div>QUANT.</div>
+        <div>TIPO SAÍDA</div>
       </div>
-
-
-      
     </div>
-    <div class="div-form-cont">
+    <div style="overflow-y: auto; max-height: 40rem">
       {% for dt in data %}
-      
+      <div class="div-form-content">
+        <div class="grid-saidas">
+          <div>{{dt.data}}</div>
+          <div>{{ dt.tc }}</div>
+          <div>{{ dt.produto }}</div>
+          <div>{{ dt.marca }}</div>
+          <div>{{ dt.qn }}</div>
+          <div>{{ dt.qt }}</div>
+          <div>{{ dt.tipo_saida }}</div>
+        </div>
+      </div>
       {% endfor %}
     </div>
-    {% endif %}
+      {% endif %}
   </form>
 </div>
   

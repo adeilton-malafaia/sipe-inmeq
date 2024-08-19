@@ -83,7 +83,7 @@ class PDFhandler:
         # Criando listas vazias, uma para cada coluna da planilha que será
         # gerada...
         data = list()
-        dt = dict()
+        # dt = dict()
 
         # Navegando em cada tabela para coletar os dados das colunas
         for i in range(0, len(tbl)):
@@ -93,11 +93,12 @@ class PDFhandler:
             # Navegando em cada linha da tabela atual para adicionar dados nas
             # listas
             for k in (range(1, len(tab[i]))):
+                dt = dict()
                 try:
                     date = str(tab[0][k])
-                    d = int(date[0:2])
-                    m = int(date[3:5])
-                    y = int(date[6:10])
+                    d = str(date[0:2])
+                    m = str(date[3:5])
+                    y = str(date[6:10])
                     dat = d + "/" + m + "/" + y  # datetime.datetime(y, m, d)
                     dt['data'] = dat
                 except Exception:
@@ -112,10 +113,11 @@ class PDFhandler:
                     dt['qt'] = int(tab[8][k])
                 except Exception:
                     dt['qt'] = 5
-                data.append(dt)
+                data.insert(len(data), dt)
 
         # Criando um dicionário com as listas...
         self.data = data
+        ...
 
     def getURL(self):
         return self.url

@@ -119,6 +119,23 @@ class CronogramaForm(forms.Form):
     crono = forms.FileField(
         widget=forms.FileInput(attrs={'accept': '.pdf'})
     )
+
     option = forms.CharField(
         widget=forms.HiddenInput()
+    )
+
+    data = forms.DateField()
+    tc = forms.CharField()
+    produto = forms.CharField()
+    marca = forms.CharField()
+    cont_nom = forms.CharField()
+    quant = forms.CharField()
+    opt = [
+        ('dt', 'Doação total'),
+        ('dp', "Doação parcial"),
+        ('rt', 'Retirada'),
+        ('in', 'Inutilização')
+    ]
+    tipo_saida = forms.CharField(
+        widget=forms.Select(choices=opt)
     )

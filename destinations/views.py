@@ -85,7 +85,7 @@ def loadCronograma(request):
 
         pd = pdfhandler.PDFhandler(file)
         pd.readFile2()
-        # pd.exportData()
+        pd.exportData()
         if pd.getSizeData() > 0:
             messages.success(request, 'PDF PROCESSADO COM SUCESSO')
             data = pd.getData()
