@@ -128,7 +128,7 @@ class CronogramaForm(forms.Form):
     tc = forms.CharField()
     produto = forms.CharField()
     marca = forms.CharField()
-    cont_nom = forms.CharField()
+    qn = forms.CharField()
     quant = forms.CharField()
     opt = [
         ('dt', 'Doação total'),
